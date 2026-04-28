@@ -1,0 +1,61 @@
+project_name:
+  type: str
+  default: new_derc_project
+repository:
+  type: str
+  default: UBC-DERC
+project_description:
+  type: str
+  help: Please write a one paragraph description of the intention of your project.
+  default: A research project for the Dairy Education Research Centre at the University of British Columbia.
+author_formal:
+  help: |
+    The `formal` name is considered to be the name used when people fomally
+    address you as Dr. Grojan (for example), or Mx. Bejar. 
+  type: str
+  default: LastName
+author_given:
+  type: str
+  help: |
+    This is the legal given name that an individual uses.
+    In some cases the formal name is the only name an individual uses.
+    Consider `formal` and `given` the names you would use for citation.
+  default: FirstName
+author_orcid:
+  help: |
+    Provide your full ORCID (if known).
+    This will be used to generate badges on your README file, and will link to the citation file for your repository.
+    Note that the format for an ORCID is "https://orcid.org/XXXX-XXXX-XXXX-XXXX", not just the number/letter combination at the end.
+  type: str
+  default: https://orcid.org/0000-0000-0000-000X
+copyright_year:
+    type: int
+    default: 2026
+license_type:
+  type: str
+  help: |
+    The license defines how your code can be shared and attributed.
+    A list of open license types is available at https://choosealicense.com/licenses/
+  choices:
+    - GNU AGPLv3
+    - GNU GPLv3
+    - GNU LGPLv3
+    - Mozilla Public License 2.0
+    - Apache License 2.0
+    - MIT License
+    - Boost Software License 1.0
+    - The Unlicense
+    - No License
+  default: No License
+code_of_conduct_lang:
+  type: str
+  help: |
+    What language(s) would you like your code of conduct to be represented in?
+    A full list of translations can be viewed at https://www.contributor-covenant.org/translations/
+  choices:
+    English (v3.0):
+      value: code_en
+    French (v2.1):
+      value: code_fr
+    German (v3.0):
+      value: code_de
