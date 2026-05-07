@@ -1,3 +1,21 @@
+<!-- badges: start -->
+[![lifecycle](https://img.shields.io/badge/lifecycle-{{ lifecycle }}-{{ lifecycle_color }}.svg)](https://www.tidyverse.org/lifecycle/#{{ lifecycle }})
+{% if award_number %}
+{%- for item.strip() in award_number.split(',') -%}
+[![NSERC](https://img.shields.io/badge/NSERC-{{ award_number }}-red.svg)](https://nserc-crsng.canada.ca/en/awards-database/{{ award_number }})
+{% endfor %}
+{% if data_location %}
+[![Dataset DOI](https://img.shields.io/badge/DOI-{{ data_location }}-blue.svg)](https://doi.org/{{ data_location }})
+{% endif %}
+{% if license_type == "MIT License"%}
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+{% elif license_type == "Mozilla Public License 2.0"%}
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+{% elif license_type = "Apache 2.0 License"%}
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+{% endif %}
+<!-- badges: end -->
+
 # {{ project_name }}
 
 {{ project_description }}
@@ -14,7 +32,11 @@ and optionally, pointers to resources that can help orient readers.
 
 This project was developed by:
 
-* [[]]({{ author_orcid }}): {{ author_given }} {{ author_formal }}
+{% if author_orcid %}
+* [![ORCID](https://img.shields.io/badge/ORCID-{{ author_orcid }}-green.svg))]({{ author_orcid }}): {{ author_given }} {{ author_formal }}
+{% elseif %}
+* {{ author_given }} {{ author_formal }}
+{% endif %}
 
 Contributions to this repository are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
