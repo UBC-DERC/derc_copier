@@ -1,10 +1,10 @@
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
-# DERC Python Copier
+# DERC Copier
 
-This is a [copier](https://copier.readthedocs.io/en/stable/) project, designed to help researchers within DERC create high quality repositories to be shared publically, using best practice approaches. We identigy both R and Python as key coding languages for researchers using DERC data, and aim to support them in developing clear workflows through the development of a clear "DERC" branding for projects.
+This is a [copier](https://copier.readthedocs.io/en/stable/) project, designed to help researchers within DERC create high quality repositories to be shared publically, using best practice approaches. We identify both R and Python as key coding languages for researchers using DERC data, and aim to support them in developing clear workflows through the development of a clear "DERC" branding for projects.
 
-Our goal is to support researchers in developing high quality code repositories for their work. This helps researchers meet the goals of [FAIR Research](https://www.go-fair.org/fair-principles/) by making their research Findable (with DOIs, improved metadata, and clear citations), Accessible (with readable and clearly licensed code), Interoperable (improving code practices using tools like `ruff` to improve common coding issues, and ensuring that data outputs and inputs are clearly identified) and Reusable (making tools like `uv` and virtual environments easier to manage).
+Our goal is to support researchers in developing high quality code repositories for their work. This helps researchers meet the goals of [FAIR Research](https://www.go-fair.org/fair-principles/) by making their research **F**indable (with DOIs, improved metadata, and clear citations), **A**ccessible (with readable and clearly licensed code), **I**nteroperable (improving code practices using tools like `ruff` to improve common coding issues, and ensuring that data outputs and inputs are clearly identified) and **R**eusable (making tools like `uv` and virtual environments easier to manage).
 
 ## Using this Repository
 
