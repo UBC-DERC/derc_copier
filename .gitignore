@@ -1,2 +1,5 @@
 
 .vscode/
+
+# Uncomment the following line to ignore the data/raw directory.
+# data/raw/

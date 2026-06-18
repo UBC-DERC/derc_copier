@@ -13,3 +13,11 @@
 ---
 # User messages
 !include copier/messages.yml
+
+---
+# Post-processing tasks to run after the template is rendered
+_tasks:
+  - ["git", "init", "--initial-branch=main"]
+  - ["git", "add", "."]
+  - ["git", "commit", "-m", "Initial commit from Copier template"]
+  - ["git", "tag", "-a", "v0.1.0", "-m", "Initial release from Copier template"]
