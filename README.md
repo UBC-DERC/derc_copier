@@ -10,19 +10,23 @@ Our goal is to support researchers in developing high quality code repositories 
 
 `copier` works by generating a folder structure from a set of template files. To use `copier` you first need to [install it](https://pypi.org/project/copier/) on your computer.
 
-Currently we strongly recommend using `uv` as part of your Python toolkit.  If you have Python installed, you can add `copier` using:
+Currently we strongly recommend using `uv` as part of your Python toolkit.  If you have Python and `uv` installed, you can add `copier` using:
 
 ```bash
 uv tool install copier
 ```
 
-If you know the location of the copier template files then you simply call:
+To use this template, build from this repository, and point to the directory you want to copy the files to.
 
 ```bash
-copier copy path/to/project/template path/to/destination
+copier copy https://github.com/UBC-DERC/derc_copier path/to/destination
 ```
 
 This then gives you a set of prompts to work through, asking information about your name, the project name, and some other choices. These choices will populate a folder with a set of supporting files to help you develop robust code.
+
+**NOTE**: This implementation initializes a `git` folder for you as part of the process. Because of this you will be asked to add `--trust` to your `copier` command.
+
+
 
 ### What is Required
 
