@@ -9,7 +9,7 @@ project_name:
     Your project_name must start with a letter, followed one or more letters, digits or dashes all lowercase.
     {% endif %}
 
-repository:
+project_repository:
   type: str
   help: |
     The name of your GitHub organization (your user name, or UBC-DERC). This will be used to generate the URL for your repository, and will be used in the README file.

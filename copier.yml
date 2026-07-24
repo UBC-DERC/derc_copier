@@ -12,7 +12,7 @@
 
 ---
 # User messages
-!include copier/messages.yml
+!include copier/user_messages.yml
 
 ---
 # Post-processing tasks to run after the template is rendered
