@@ -63,8 +63,8 @@ copyright_year:
     help: |
       The year that you want to be listed on your copyright notice.
       This will be used to generate a badge on your README file, and will link to the citation file for your repository.
-    default: 2026
-
+    default: |
+      {{- "%d-%m-%Y" | date_time -}}
 license_type:
   type: str
   help: |
