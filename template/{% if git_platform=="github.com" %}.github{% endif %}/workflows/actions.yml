@@ -20,3 +20,7 @@ jobs:
             - run: uv sync
             - name: Lint (ruff)
               run: uv run ruff check .
+            - name: Test package load
+              run: uv run pytest
+            - name: Test package load with coverage
+              run: uv run pytest --cov=. --cov-report=xml
