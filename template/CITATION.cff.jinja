@@ -6,6 +6,6 @@ authors:
     orcid: {{ author_orcid}}
 title: {{ project_name }}
 version: {{ project_version }}
-doi: {{ project_doi }}
-date-released: {{ project_date }}
-url: https://github.com/{{project_repository}}/{{ project_URL }}
+{% if project_doi %}doi: {{ project_doi }}{% endif %}
+{%- if project_date %}date-released: {{ project_date }}{% endif %}
+url: https://{{ git_platform }}/{{ project_repository }}/{{ project_name }}
