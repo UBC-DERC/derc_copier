@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 authors:
   - family-names: {{ author_formal }}
     given-names: {{ author_given }}
-    orcid: {{ author_orcid}}
+    {% if author_orcid %} orcid: {{ author_orcid}} {% endif %}
 title: {{ project_name }}
 version: {{ project_version }}
 {% if project_doi %}doi: {{ project_doi }}{% endif %}

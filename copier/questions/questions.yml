@@ -95,6 +95,10 @@ author_orcid:
     Note that the format for an ORCID is "https://orcid.org/XXXX-XXXX-XXXX-XXXX", not just the number/letter combination at the end.
   type: str
   default: https://orcid.org/0000-0000-0000-000X
+  validator: >-
+    {% if author_orcid and not (author_orcid | regex_search('^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$', ignorecase=True)) %}
+    Your author_orcid must be in the format https://orcid.org/XXXX-XXXX-XXXX-XXXX, where X is a digit or letter.
+    {% endif %}
 
 author_email:
   type: str
