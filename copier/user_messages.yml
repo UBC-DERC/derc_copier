@@ -4,7 +4,8 @@ _message_before_copy: |
     Netherlands eScience Center's Python project template. 
 
     As you create your project, you will be asked a set of questions, with pre-set defaults.
-    You can always go back and change elements of your new project, we are just providing initial setup and links to help you follow best practices.
+    You can always go back and change elements of your new project, we are just providing initial setup and
+    links to help you follow best practices.
 
     For each question there is a placeholder. Make sure you provide an
     input to each of them.

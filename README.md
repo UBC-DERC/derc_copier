@@ -8,9 +8,9 @@ Our goal is to support researchers in developing high quality code repositories 
 
 ## Using this Repository
 
-`copier` works by generating a folder structure from a set of template files. To use `copier` you first need to [install it](https://pypi.org/project/copier/) on your computer.
+`copier` works by generating a folder structure from a set of template files. We have tried to meet best practices for both software and research projects in our development, to help you create the best project possible. To use `copier` you first need to [install it](https://pypi.org/project/copier/) on your computer.
 
-Currently we strongly recommend using `uv` as part of your Python toolkit.  If you have Python and `uv` installed, you can add `copier` using:
+Currently we strongly recommend using `uv` as part of your Python toolkit. If you have Python and `uv` installed, you can add `copier` using:
 
 ```bash
 uv tool install copier
@@ -24,9 +24,7 @@ copier copy https://github.com/UBC-DERC/derc_copier path/to/destination
 
 This then gives you a set of prompts to work through, asking information about your name, the project name, and some other choices. These choices will populate a folder with a set of supporting files to help you develop robust code.
 
-**NOTE**: This implementation initializes a `git` folder for you as part of the process. Because of this you will be asked to add `--trust` to your `copier` command.
-
-
+**NOTE**: This implementation initializes a `git` folder (for version control) for you as part of the process. Because of this you will be asked to add `--trust` to your `copier` command.
 
 ### What is Required
 

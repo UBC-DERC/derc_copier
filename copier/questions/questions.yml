@@ -16,7 +16,7 @@ project_repository:
     Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase.
   default: UBC-DERC
   validator: >-
-    {% if not (repository | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) %}
+    {% if not (project_repository | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) %}
     Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase.
     {% endif %}
 
@@ -24,6 +24,16 @@ project_description:
   type: str
   help: Please write a short description of the intention of your project.
   default: A research project for the Dairy Education Research Centre at the University of British Columbia.
+
+git_platform:
+  type: str
+  help: |
+    The name of the Git platform you will be using for your repository. This will be used to generate the URL for your repository, and will be used in the README file.
+  choices:
+    - github.com
+    - gitlab.com
+    - bitbucket.org
+  default: github.com
 
 author_formal:
   help: |
@@ -64,6 +74,7 @@ license_type:
     - Apache License 2.0
     - MIT License
     - No License
+    - Mozilla Public License 2.0
   default: No License
 
 code_of_conduct_lang:
