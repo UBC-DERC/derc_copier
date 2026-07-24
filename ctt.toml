@@ -1,0 +1,14 @@
+
+[defaults]
+project_name = "testproject"
+project_repository = "UBC-DERC"
+git_platform = "github.com"
+project_description = "placeholder"
+author_formal = "placeholder"
+author_given = "placeholder"
+author_orcid = "placeholder"
+license_type = "Mozilla Public License 2.0"
+code_of_conduct_lang = "code_fr"
+
+[output.".ctt/copier_include"]
+version = "1.2.3"
