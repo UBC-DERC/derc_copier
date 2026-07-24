@@ -34,7 +34,7 @@ and optionally, pointers to resources that can help orient readers.
 This project was developed by:
 
 {% if author_orcid %}
-* [![ORCID](https://img.shields.io/badge/ORCID-{{ author_orcid }}-green.svg)]({{ author_orcid }}): {{ author_given }} {{ author_formal }}
+* [![ORCID](https://img.shields.io/badge/ORCID-{{ author_orcid | regex_replace('^https?://orcid\.org/', '') | regex_replace('-', '--') }}-green.svg)]({{ author_orcid }}): {{ author_given }} {{ author_formal }}
 {% else %}
 * {{ author_given }} {{ author_formal }}
 {% endif %}

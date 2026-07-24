@@ -1,5 +1,7 @@
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
+[![core_actions](https://github.com/UBC-DERC/derc_copier/actions/workflows/validation.yml/badge.svg)](https://github.com/UBC-DERC/derc_copier/actions/workflows/validation.yml)
+
 # DERC Copier
 
 This is a [copier](https://copier.readthedocs.io/en/stable/) project, designed to help researchers within DERC create high quality repositories to be shared publically, using best practice approaches. We identify both R and Python as key coding languages for researchers using DERC data, and aim to support them in developing clear workflows through the development of a clear "DERC" branding for projects.
