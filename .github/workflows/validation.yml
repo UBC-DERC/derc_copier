@@ -26,6 +26,10 @@ jobs:
               run: uv run ruff check .
             - name: Test coper build
               run: uv run ctt
+            - name: Test package load
+              run: uv run pytest .ctt/copier_include/tests/test_exists.py
+            - name: Test package load with coverage
+              run: uv run pytest --cov=. --cov-report=xml .ctt/copier_include/tests/test_exists.py
             - name: Check whether the citation metadata from CITATION.cff is valid
               uses: citation-file-format/cffconvert-github-action@af1004e6eb5ebfadad8450ebcdceefb3866190e1
               with:
