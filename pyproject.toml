@@ -7,7 +7,9 @@ authors = [
     { name = "Simon Goring", email = "simon.j.goring@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "jinja2-time>=0.2.0",
+]
 
 [project.scripts]
 derc-copier = "derc_copier:main"

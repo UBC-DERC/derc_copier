@@ -7,6 +7,7 @@ project_description = "A copier placeholder to make sure things work."
 author_formal = "LastName IV"
 author_given = "Smongus"
 author_orcid = "https://orcid.org/0000-0002-2700-4605"
+author_email = "banana@banana.banana"
 license_type = "Mozilla Public License 2.0"
 code_of_conduct_lang = "code_fr"
 
