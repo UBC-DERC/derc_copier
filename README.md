@@ -34,6 +34,14 @@ To begin you are asked some information to help populate the files. These values
 
 The full list of questions is visible in the [`copier/questions/questions.yml`](copier/questions/questions.yml) file. Questions are listed as required (`project_name` and `package_name`) or optional.
 
+**You don't have to answer everything now!**
+
+The nice thing about `copier` is that it lets us update over time. If we improve these templates, you can update. If you have new answers you can update.
+
+### Updating My Answers
+
+After you've created your folder setup you will see a file called `.copier_answers.yml`. This contains all your answers, including answers to the questions you skipped. At any time you can edit these answers, and then update your repository with the command: `copier update`.
+
 ## Testing
 
 It's always important to test projects. For this project we use the [`ctt`](https://copier-template-tester.kyleking.me/) (copier-template-tester) package. `ctt` uses the [`ctt.toml`](ctt.toml) file to provide a set of pre-defined answers for various scenarios. Running:
