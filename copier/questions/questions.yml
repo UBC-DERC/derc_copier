@@ -4,7 +4,7 @@ project_name:
     The name of your project. This will be used to generate the name of your repository, and will be used in the README file.
     Your project_name must start with a letter, followed one or more letters, digits or dashes all lowercase.
   default: new-derc-project
-  when: "{{ template_profile in ['recommended', 'ask'] }}" 
+  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}" 
   validator: >-
     {% if not (project_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
     Your project_name must start with a letter, followed one or more letters, digits or dashes all lowercase.
@@ -12,7 +12,7 @@ project_name:
 
 package_name:                                                                                                     
   type: str                                                                                                       
-  when: "{{ template_profile in ['recommended', 'ask'] }}" 
+  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}" 
   default: "{{ project_name | regex_replace('-', '_') }}"
 
 project_repository:
@@ -42,7 +42,7 @@ project_version:
     Managing versions can be complicated, so we recommend a YY.MM format.
     When something works, update the version to the current last two of the year,
     and the numeral month, this is known as Calendar Versioning (CalVer).
-  when: "{{ template_profile in ['recommended', 'ask'] }}"
+  when: "{{ template_profile in ['ask'] }}"
   default: >-
     {% now 'utc', '%y.%m' %}
   validator: >-
@@ -56,7 +56,7 @@ project_doi:
     If you have a DOI for this repository, please enter it here. This will be used to generate the DOI badge on your README file, and will link to the citation file for your repository.
     If you do not have a DOI, please leave this blank. You can always update this later.
   default: ""
-  when: "{{ template_profile in ['recommended', 'ask'] }}"
+  when: "{{ template_profile in ['ask'] }}"
   validator: >-
     {% if project_doi and not (project_doi | regex_search('^10\.[0-9]{4,9}/[-._;()/:A-Z0-9]+$', ignorecase=True)) %}
     Your project_doi must be in the format 10.xxxx/xxxxxx, where x is a digit or letter.
@@ -69,7 +69,7 @@ project_date:
     Please use the format YYYY-MM-DD.
   default: >-
     {% now 'utc', '%Y-%m-%d' %}
-  when: "{{ template_profile in ['recommended', 'ask'] }}"
+  when: "{{ template_profile in ['ask'] }}"
   validator: >-
     {% if not (project_date | regex_search('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')) %}
     Your project_date must be in the format YYYY-MM-DD, where YYYY is the year, MM is the month, and DD is the day.
@@ -91,7 +91,7 @@ author_formal:
     The `formal` name is considered to be the name used when people fomally
     address you as Dr. Grojan (for example), or Mx. Bejar. 
   type: str
-  when: "{{ template_profile in ['recommended', 'ask'] }}"
+  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}"
   default: LastName
 
 author_given:
@@ -100,7 +100,7 @@ author_given:
     This is the legal given name that an individual uses.
     In some cases the formal name is the only name an individual uses.
     Consider `formal` and `given` the names you would use for citation.
-  when: "{{ template_profile in ['recommended', 'ask'] }}"
+  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}"
   default: FirstName
 
 author_orcid:
@@ -109,7 +109,7 @@ author_orcid:
     This will be used to generate badges on your README file, and will link to the citation file for your repository.
     Note that the format for an ORCID is "https://orcid.org/XXXX-XXXX-XXXX-XXXX", not just the number/letter combination at the end.
   type: str
-  when: "{{ template_profile in ['recommended', 'ask'] }}"
+  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}"
   default: https://orcid.org/0000-0000-0000-000X
   validator: >-
     {% if author_orcid and not (author_orcid | regex_search('^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$', ignorecase=True)) %}
@@ -122,7 +122,7 @@ author_email:
     Provide your email address (if known).
     This will be used to generate badges on your README file, and will link to the citation file for your repository.
   default: name@example.com
-  when: "{{ template_profile in ['recommended', 'ask'] }}"
+  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}"
   validator: >-
     {% if not (author_email | regex_search('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')) %}
     Your author_email must be in the format email@example.com
@@ -147,6 +147,7 @@ license_type:
     - MIT License
     - No License
     - Mozilla Public License 2.0
+  when: "{{ template_profile in ['ask'] }}"
   default: No License
 
 code_of_conduct_lang:
