@@ -21,7 +21,7 @@ uv tool install copier
 To use this template, build from this repository, and point to the directory you want to copy the files to.
 
 ```bash
-copier copy https://github.com/UBC-DERC/derc_copier path/to/destination
+copier --trust copy https://github.com/UBC-DERC/derc_copier path/to/destination
 ```
 
 This then gives you a set of prompts to work through, asking information about your name, the project name, and some other choices. These choices will populate a folder with a set of supporting files to help you develop robust code.
@@ -43,3 +43,14 @@ Here are the fields we ask for:
 * Copyright Year: Generally the default is the current year.
 * License Type: Appropriate software licensing is an ongoing discussion in academia and elsewhere. We provide a selection of open source licenses here to choose from. If you use confidential data, or data that is part of an NDA or other agreement then you may choose to skip or remove the license file.
 * Code of Conduct: A Code of Conduct is a critical component of any software repository (and project generally). This question allows you to choose a code of conduct in one of several languages.
+
+## Testing
+
+It's always important to test projects. For this project we use the [`ctt`](https://copier-template-tester.kyleking.me/) (copier-template-tester) package. `ctt` uses the [`ctt.toml`](ctt.toml) file to provide a set of pre-defined answers for various scenarios. Running:
+
+```bash
+uv run ctt
+```
+
+This will generate a set of templates in a new `.ctt` folder. Once the folder has been checked, you will know whether or not the template works.
+
