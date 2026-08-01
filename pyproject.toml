@@ -23,6 +23,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "cffconvert>=2.0.0",
     "copier-template-tester>=2.5.0",
     "ruff>=0.16.0",
 ]

@@ -3,9 +3,11 @@ message: "If you use this software, please cite it as below."
 authors:
   - family-names: {{ author_formal }}
     given-names: {{ author_given }}
-    {% if author_orcid %} orcid: {{ author_orcid}} {% endif %}
+    {% if author_orcid %}orcid: {{ author_orcid}} {% endif %}
+{% if project_description %}abstract: "{{ project_description }}"{% endif %}
 title: {{ project_name }}
 version: {{ project_version }}
 {% if project_doi %}doi: {{ project_doi }}{% endif %}
 {%- if project_date %}date-released: {{ project_date }}{% endif %}
 url: https://{{ git_platform }}/{{ project_repository }}/{{ project_name }}
+{% if not license_type == "No License" %}license: {{license_type}}{% endif %}

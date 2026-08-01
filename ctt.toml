@@ -8,20 +8,20 @@ author_formal = "LastName IV"
 author_given = "Smongus"
 author_orcid = "https://orcid.org/0000-0002-2700-4605"
 author_email = "banana@banana.banana"
-license_type = "Mozilla Public License 2.0"
+license_type = "MPL-2.0"
 code_of_conduct_lang = "code_fr"
 
 [output.".ctt/copier_include"]
 version = "1.2.3"
 
-[output.".ctt/mpl"]                                                                                                 
-license_type = "Mozilla Public License 2.0"                                                                         
-                                                                                                                    
-[output.".ctt/apache"]                                                                                              
-license_type = "Apache License 2.0"                                                                                 
-                                                                                                                    
-[output.".ctt/mit"]                                                                                                 
-license_type = "MIT License"                                                                                        
-                                                                                                                    
-[output.".ctt/no-license"]                                                                                          
+[output.".ctt/mpl"]
+license_type = "MPL-2.0"
+
+[output.".ctt/apache"]
+license_type = "Apache-2.0"
+
+[output.".ctt/mit"]
+license_type = "MIT"
+
+[output.".ctt/no-license"]
 license_type = "No License"

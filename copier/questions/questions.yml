@@ -143,10 +143,14 @@ license_type:
     The license defines how your code can be shared and attributed.
     A list of open license types is available at https://choosealicense.com/licenses/
   choices:
-    - Apache License 2.0
-    - MIT License
-    - No License
-    - Mozilla Public License 2.0
+    Apache v2.0:
+      value: Apache-2.0
+    MIT License:
+      value: MIT
+    Personal Copyright:
+      value: No License
+    Mozilla Public License 2.0:
+      value: MPL-2.0
   when: "{{ template_profile in ['ask'] }}"
   default: No License
 
