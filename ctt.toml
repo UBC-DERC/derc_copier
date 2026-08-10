@@ -1,6 +1,6 @@
 
 [defaults]
-project_title = "testproject"
+project_title = "This Big Title Name"
 project_repository = "UBC-DERC"
 git_platform = "github.com"
 project_description = "A copier placeholder to make sure things work."

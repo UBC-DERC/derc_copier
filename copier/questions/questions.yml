@@ -30,11 +30,11 @@ project_name:
   help: An auto-edited string, generated based on the naming convention for the programming language.
   when: false
   default: >-
-    {% if primary_language == 'r' %}
-    {{ project_title|lower | regex_replace(' -_', '')}}
-    {% else %}
-    {{ project_title|lower | regex_replace(' -_', '-')}}
-    {% endif %}
+    {%- if primary_language == 'r' -%}
+    {{ project_title|lower|regex_replace('[ -_]', '')}}
+    {%- else -%}
+    {{ project_title|lower|regex_replace('[ -_]', '-')}}
+    {%- endif -%}
     
 
 project_description:
