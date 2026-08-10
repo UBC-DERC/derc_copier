@@ -25,5 +25,6 @@ build-backend = "uv_build"
 dev = [
     "cffconvert>=2.0.0",
     "copier-template-tester>=2.5.0",
+    "mkdocs>=1.6.1",
     "ruff>=0.16.0",
 ]
