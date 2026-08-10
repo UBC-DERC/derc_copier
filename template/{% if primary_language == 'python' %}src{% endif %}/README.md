@@ -10,10 +10,4 @@ This way, your whole workflow should run if someone copies your repository and j
 python main_script.py
 ```
 
-or
-
-```bash
-Rscript -e main_file.R
-```
-
 And those other files would call to functions or scripts in your `src` folder.
