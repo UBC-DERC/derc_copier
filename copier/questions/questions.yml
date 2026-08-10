@@ -10,10 +10,8 @@ project_name:
     Your project_name must start with a letter, followed one or more letters, digits or dashes all lowercase.
     {% endif %}
 
-package_name:                                                                                                     
-  type: str                                                                                                       
-  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}" 
-  default: "{{ project_name | regex_replace('-', '_') }}"
+project_language:
+  type: str
 
 project_repository:
   type: str
@@ -212,3 +210,27 @@ lifecycle_color:
         lightgrey
       {%- endif %}
   when: false
+
+primary_language:
+  type: str
+  help: What will be your primary programming language for this project?
+  choices:
+    R:
+      value: r
+    Python:
+      value: python
+    other:
+      value: other
+
+include_mkdocs:
+  type: bool
+  default: true
+  help: Should we include the mkdocs framework for documenting your project?
+  when: |-
+    {% if primary_langugage == 'python' %}
+
+include_quarto:
+  type: bool
+  default: true
+  help: Will you be using a Quarto notebook for manuscript or document writing?
+  when: true
