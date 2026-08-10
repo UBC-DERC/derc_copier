@@ -21,7 +21,7 @@ uv tool install copier
 To use this template, build from this repository, and point to the directory you want to copy the files to.
 
 ```bash
-copier --trust copy https://github.com/UBC-DERC/derc_copier path/to/destination
+copier copy https://github.com/UBC-DERC/derc_copier path/to/destination --trust
 ```
 
 This then gives you a set of prompts to work through, asking information about your name, the project name, and some other choices. These choices will populate a folder with a set of supporting files to help you develop robust code.
