@@ -1,6 +1,6 @@
 
 [defaults]
-project_name = "testproject"
+project_title = "testproject"
 project_repository = "UBC-DERC"
 git_platform = "github.com"
 project_description = "A copier placeholder to make sure things work."
@@ -10,6 +10,7 @@ author_orcid = "https://orcid.org/0000-0002-2700-4605"
 author_email = "banana@banana.banana"
 license_type = "MPL-2.0"
 code_of_conduct_lang = "code_fr"
+primary_language = "r"
 
 [output.".ctt/copier_include"]
 version = "1.2.3"
@@ -25,3 +26,11 @@ license_type = "MIT"
 
 [output.".ctt/no-license"]
 license_type = "No License"
+
+[output.".ctt/r-proj"]
+project_title = "My Project"
+primary_language = "r"
+
+[output.".ctt/python-proj"]
+primary_language = "python"
+project_title = "My Project"

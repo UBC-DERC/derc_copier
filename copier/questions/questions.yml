@@ -1,32 +1,41 @@
-project_name:
+project_title:
   type: str
   help: |
     The name of your project. This will be used to generate the name of your repository, and will be used in the README file.
-    Your project_name must start with a letter, followed one or more letters, digits or dashes all lowercase.
+    Your project_name must start with a letter, followed one or more letters, digits or dashes. The project title
+    is different than the "project name", where we will transform the title into a valid project name for your programming language.
+    The transformation will change all text to lowercase.
+    For an R project, we will remove all spaces, dashes and underscores in your paths, to fit with R project naming conventions.
+    For Python projects, all underscores and spaces will be replaced by dashes.
   default: new-derc-project
   when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}" 
   validator: >-
-    {% if not (project_name | regex_search('^[a-z][a-z0-9\-]+$')) %}
-    Your project_name must start with a letter, followed one or more letters, digits or dashes all lowercase.
+    {% if not (project_title | regex_search('^[a-zA-Z][a-zA-Z0-9\- ]+$')) %}
+    Your project_name must start with a letter, followed one or more letters, digits, dashes, spaces and underscores all lowercase.
     {% endif %}
 
-package_name:                                                                                                     
-  type: str                                                                                                       
-  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}" 
-  default: "{{ project_name | regex_replace('-', '_') }}"
-
-project_repository:
+primary_language:
   type: str
-  help: |
-    The name of your GitHub organization (your GitHub user name, or UBC-DERC). This will be used to generate the URL for your repository, and will be used in the README file.
-    Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase. If 
-    you aren't using GitHub feel free to skip this answer.
-  default: UBC-DERC
-  when: "{{ template_profile in ['recommended', 'ask'] }}" 
-  validator: >-
-    {% if not (project_repository | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) %}
-    Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase.
+  help: What will be your primary programming language for this project?
+  choices:
+    R:
+      value: r
+    Python:
+      value: python
+    other:
+      value: other
+
+project_name:
+  type: str
+  help: An auto-edited string, generated based on the naming convention for the programming language.
+  when: false
+  default: >-
+    {% if primary_language == 'r' %}
+    {{ project_title|lower | regex_replace(' -_', '')}}
+    {% else %}
+    {{ project_title|lower | regex_replace(' -_', '-')}}
     {% endif %}
+    
 
 project_description:
   type: str
@@ -84,7 +93,23 @@ git_platform:
     - github.com
     - gitlab.com
     - bitbucket.org
+    - none
   default: github.com
+
+project_repository:
+  type: str
+  help: |
+    The name of your code versioning organization (e.g., your GitHub user name, or UBC-DERC). This will be used to generate the 
+    URL for your repository, and will be used in the README file.
+    Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase..
+  default: UBC-DERC
+  when: >-
+    {% if (template_profile in ['recommended', 'ask']) and not (git_platform == "none") %}
+    {% endif %} 
+  validator: >-
+    {% if not (project_repository | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) and not (git_platform == "none") %}
+    Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase.
+    {% endif %}
 
 author_formal:
   help: |
@@ -212,3 +237,17 @@ lifecycle_color:
         lightgrey
       {%- endif %}
   when: false
+
+include_mkdocs:
+  type: bool
+  default: true
+  help: Should we include the mkdocs framework for documenting your project?
+  when: >-
+    {% if primary_langugage == 'python' %}
+    {% endif %}
+
+include_quarto:
+  type: bool
+  default: true
+  help: Will you be using a Quarto notebook for manuscript or document writing?
+  when: true
