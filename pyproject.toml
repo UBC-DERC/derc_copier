@@ -1,7 +1,7 @@
 [project]
 name = "derc-copier"
 version = "0.1.0"
-description = "Add your description here"
+description = "A templating tool for UBC DERC programming projects."
 readme = "README.md"
 authors = [
     { name = "Simon Goring", email = "simon.j.goring@gmail.com" }
