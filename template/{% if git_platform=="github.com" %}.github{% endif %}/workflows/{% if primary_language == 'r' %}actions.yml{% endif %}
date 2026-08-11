@@ -1,0 +1,25 @@
+name: core_actions
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+permissions: {}
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+            - name: Setup R
+              uses: r-lib/actions/setup-r@5cc1f0d89c5281319eaa97952fe65a6d55e6f816 # v2.0
+            - name: Install dependencies
+              uses: r-lib/actions/setup-r-dependencies@5cc1f0d89c5281319eaa97952fe65a6d55e6f816
+            - name: Lint (ruff)
+              run: uv run ruff check .
+            - name: Test package load
+              run: uv run pytest
+            - name: Test package load with coverage
+              run: uv run pytest --cov=. --cov-report=xml
