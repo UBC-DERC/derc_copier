@@ -17,9 +17,16 @@ jobs:
               uses: r-lib/actions/setup-r@5cc1f0d89c5281319eaa97952fe65a6d55e6f816 # v2.0
             - name: Install dependencies
               uses: r-lib/actions/setup-r-dependencies@5cc1f0d89c5281319eaa97952fe65a6d55e6f816
-            - name: Lint (ruff)
-              run: uv run ruff check .
-            - name: Test package load
-              run: uv run pytest
-            - name: Test package load with coverage
-              run: uv run pytest --cov=. --cov-report=xml
+              with:
+                extra-packages: any::lintr, any::roxygen2, local::.
+                needs: lint, pr-document
+            - name: Document
+              run: roxygen2::roxygenise()
+              shell: Rscript {0}
+            - name: Lint
+              run: lintr::lint_package()
+              shell: Rscript {0}
+              env:
+                LINTR_ERROR_ON_LINT: true
+            - name: Check package
+              uses: r-lib/actions/check-r-package@5cc1f0d89c5281319eaa97952fe65a6d55e6f816
