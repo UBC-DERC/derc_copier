@@ -7,7 +7,4 @@ def sample_function(x:int) -> bool:
     Returns:
         bool: _Returns True if you pass 1, otherwise returns False._
     """
-    if x == 1:
-        return True
-    else:
-        return False
+    return x == 1
