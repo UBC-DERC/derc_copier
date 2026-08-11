@@ -31,11 +31,10 @@ project_name:
   when: false
   default: >-
     {%- if primary_language == 'r' -%}
-    {{ project_title|lower|regex_replace('[ -_]', '')}}
+    {{ project_title|lower|regex_replace('[ \-_]', '')}}
     {%- else -%}
-    {{ project_title|lower|regex_replace('[ -_]', '-')}}
+    {{ project_title|lower|regex_replace('[ \-_]', '_')}}
     {%- endif -%}
-    
 
 project_description:
   type: str
