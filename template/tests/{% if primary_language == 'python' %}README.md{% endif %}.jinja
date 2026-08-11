@@ -1,8 +1,6 @@
 # Testing
 
-Testing is really important! It helps make sure things are happening as 
-you would expect them to. The python package [`pytest`](https://docs.pytest.org/en/stable/) is really useful for
-setting up tests for your project.
+Testing is really important! It helps make sure things are happening as you would expect them to. The python package [`pytest`](https://docs.pytest.org/en/stable/) is really useful for setting up tests for your project.
 
 ## Good Tests
 
@@ -10,7 +8,7 @@ A good test should test one thing, and test it well. Tests are things that can r
 
 They're really important, because if you start writing complicated stuff, you want to make sure that your figures, tables and statistical tests are actually showing what you expect them to show.
 
-For example, if you are loading data from a CSV file and turning it into a data.frame in R, turn it into a function, and write a test for it:
+For example, if you are loading data from a CSV file and turning it into a `dict` in Python, turn it into a function, and write a test for it:
 
 ```python
 def load_data(filename:str) -> dict:
@@ -29,7 +27,7 @@ FILENAME = 'myfilename.csv'
 def test_load():
     aa = load_data(FILENAME)
     assert isinstance(aa, dict), "The load_file function does not return a dict."
-    
+
 ```
 
 If this fails, then that tells us that any of our figures, or tests that depend on this table are likely not showing us what we expected.
