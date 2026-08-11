@@ -1,7 +1,7 @@
 #' @title A sample function to get you started
 #' @name sample_function
 #' @author {{ author_given }} {{ author_formal }} \email{{{ author_email }}}
-#' @importFrom methods new
+#' @importFrom assertthat assert_that
 #' @param x integer A number of your choosing.
 #' @returns True/False
 #' @description A simple function to show how to use the
@@ -9,9 +9,10 @@
 #' @md
 #' @export
 sample_function <- function(x = NA) {
+  assert_that(is.number(x), "The value passed must be numeric.")
   if (x == 1) {
-    return(True)
+    return(TRUE)
   } else {
-    return(False)
+    return(FALSE)
   }
 }

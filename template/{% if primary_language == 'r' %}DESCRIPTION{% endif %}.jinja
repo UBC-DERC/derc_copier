@@ -2,11 +2,12 @@ Package: {{ project_name }}
 Title: {{ project_title }}
 Version: {{ project_version }}
 Description: {{ project_description }}
-Authors@R: person({{ author_given }}, {{ author_formal }},
-  email = {{ author_email }},
+Authors@R: person("{{ author_given }}", "{{ author_formal }}",
+  email = "{{ author_email }}",
   role = c("cre", "aut"),
-  comment = c(ORCID = {{ author_orcid }}))
-License: {{ license_type }} + file LICENSE
+  comment = c(ORCID = "{{ author_orcid }}"))
+License: {{ license_type }}
+Depends: R (>= 4.x)
 Suggests:
   testthat
 Imports:
