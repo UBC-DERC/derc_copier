@@ -1,4 +1,4 @@
-# Using Templates
+# Best Practices
 
 There are a lot of things that go into developing reproducible research software, and there is a huge range of projects that would qualify as reproducible research software. For example:
 
@@ -7,28 +7,27 @@ There are a lot of things that go into developing reproducible research software
 * A computer vision pipeline
 * A software package for R or Python
 
-A template sets up folders, files and even simple programs that will help clean up your code and make sure your results are consistent and clean.
+The DERC template sets up folders, files, and even simple programs that encode
+these best practices for you. The pages in this section explain the ideas behind
+them, so you understand *what* to do and *why* &mdash; and so you can adapt them to
+your own work.
 
-## Setting up a Template
+## In this section
 
-* `copier` for Python projects
-* `cookiecutter` for R Projects
+* [**It's Your Work &mdash; Attribution**](attribution/index.md) &mdash; citation,
+  licensing, and describing your work so it can be found and credited.
+* [**Building Community**](community/index.md) &mdash; codes of conduct,
+  contribution guides, and documentation that make a project welcoming.
+* [**Staying Organized**](organization/index.md) &mdash; folder structure, package
+  and library management, version control, and changelogs.
 
-## Best Practices
+> **Coming soon:** *Writing Better Code* &mdash; style guides, testing, and
+> containers.
 
-* It's Your Work
-  * Citation
-  * Licensing
-  * Describing
-* Building Community
-  * Code of Conduct
-  * Documentation
-* Staying Organized
-  * Folder Structure
-  * Managing Packages and Libraries
-  * Version Control
-  * Changelogs
-* Writing Better Code
-  * Style Guides
-  * Testing
-  * Containers
+## How the template fits in
+
+The DERC template uses [`copier`](https://copier.readthedocs.io/) to generate both
+**R** and **Python** projects. Rather than remembering to add each of these
+best-practice elements by hand, the template creates them for you at setup, and lets
+you pull in improvements later. See [Using the DERC Template](using/index.md) to get
+started.

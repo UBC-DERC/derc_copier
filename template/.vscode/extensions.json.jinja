@@ -1,0 +1,18 @@
+{#-
+  Recommended (not forced) editor extensions. VSCode and Positron will prompt
+  the user to install these when they open the project folder. The list is
+  gated on the project's primary language. `.editorconfig` support is always
+  recommended so formatting stays consistent across VSCode, Positron and
+  RStudio.
+-#}
+{%- set recommendations = ["editorconfig.editorconfig"] -%}
+{%- if primary_language == 'python' -%}
+{%- set recommendations = recommendations + ["ms-python.python", "charliermarsh.ruff"] -%}
+{%- elif primary_language == 'r' -%}
+{%- set recommendations = recommendations + ["reditorsupport.r"] -%}
+{%- endif -%}
+{
+  "recommendations": [
+{% for extension in recommendations %}    "{{ extension }}"{{ "," if not loop.last }}
+{% endfor %}  ]
+}
