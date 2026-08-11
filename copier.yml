@@ -17,6 +17,7 @@
 ---
 # Post-processing tasks to run after the template is rendered
 _tasks:
+  - "{% if primary_language == 'r' %}Rscript {{ _copier_conf.src_path }}/copier/scripts/init_renv.R{% endif %}"
   - ["git", "init", "--initial-branch=main"]
   - ["git", "add", "."]
   - ["git", "commit", "-m", "Initial commit from Copier template"]

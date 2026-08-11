@@ -242,7 +242,7 @@ include_mkdocs:
   default: true
   help: Should we include the mkdocs framework for documenting your project?
   when: >-
-    {% if primary_langugage == 'python' %}
+    {% if primary_language == 'python' %}
     {% endif %}
 
 include_quarto:

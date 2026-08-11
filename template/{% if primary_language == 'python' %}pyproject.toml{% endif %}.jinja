@@ -6,6 +6,9 @@ readme = "README.md"
 authors = [
     { name = "{{ author_given }} {{ author_formal }}", email = "{{ author_email }}" }
 ]
+{%- if not (license_type == 'No license') %}
+license = "{{ license_type }}"
+{%- endif -%}
 
 requires-python = ">=3.12"
 
@@ -21,3 +24,30 @@ dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
 ]
+
+[tool.ruff]
+exclude = [
+    "data",
+    "assets",
+    "docs"
+  ]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+  ]
+ addopts = ["--maxfail=5", "-rf"]
+ console_output_style = "progress"
+ max_warnings = 5
+ strict = true
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.html]
+directory = "coverage_html_report"
+
+[tool.coverage.report]
+fail_under = 70
+format = "markdown"
+skip_empty = true
