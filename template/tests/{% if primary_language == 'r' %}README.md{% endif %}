@@ -4,7 +4,7 @@ Testing is really important! It helps make sure things are happening as you woul
 
 ## Good Tests
 
-A good test should test one thing, and test it well. Tests are things that can run quickly (generally) as a check to make sure your code works the way you expect it to.
+A good test should test one thing, and test it well. Tests are things that can run quickly (generally) as a check to make sure your code works the way you expect it to. There is a great document about [testing R packages](https://r-pkgs.org/testing-basics.html) in the [R Package Resource](https://r-pkgs.org/)
 
 They're really important, because if you start writing complicated stuff, you want to make sure that your figures, tables and statistical tests are actually showing what you expect them to show.
 

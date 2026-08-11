@@ -17,6 +17,9 @@
 ---
 # Post-processing tasks to run after the template is rendered
 _tasks:
+  - "{% if primary_language == 'r' %}Rscript -e 'if                          
+    (!requireNamespace('renv', quietly=TRUE)) install.packages('renv',         
+    repos='https://cloud.r-project.org'); renv::init(bare = TRUE);renv::snapshot(type ='explicit',prompt=FALSE)'{% endif %}"
   - ["git", "init", "--initial-branch=main"]
   - ["git", "add", "."]
   - ["git", "commit", "-m", "Initial commit from Copier template"]
