@@ -1,5 +1,6 @@
 
-.vscode/
+# Ignore this repo's own editor folder, but not the template's (template/.vscode).
+/.vscode/
 
 # Uncomment the following line to ignore the data/raw directory.
 # data/raw/
@@ -7,3 +8,5 @@
 .ctt/
 .venv
 codeql-custom-queries-python/
+
+site/
