@@ -8,6 +8,10 @@ This is a [copier](https://copier.readthedocs.io/en/stable/) project, designed t
 
 Our goal is to support researchers in developing high quality code repositories for their work. This helps researchers meet the goals of [FAIR Research](https://www.go-fair.org/fair-principles/) by making their research **F**indable (with DOIs, improved metadata, and clear citations), **A**ccessible (with readable and clearly licensed code), **I**nteroperable (improving code practices using tools like `ruff` to improve common coding issues, and ensuring that data outputs and inputs are clearly identified) and **R**eusable (making tools like `uv` and virtual environments easier to manage).
 
+## Why Should I Use This?
+
+Even if you don't use GitHub, this project will help you develop high quality code by providing a roadmap for development. It will give you the tools needed to organize your data, and point to important tools (like `uv`, `ruff` and others) that will help you manage your code.
+
 ## Using this Repository
 
 `copier` works by generating a folder structure from a set of template files. We have tried to meet best practices for both software and research projects in our development, to help you create the best project possible. To use `copier` you first need to [install it](https://pypi.org/project/copier/) on your computer.
