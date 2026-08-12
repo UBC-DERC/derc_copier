@@ -21,7 +21,7 @@ _tasks:
   - ["git", "init", "--initial-branch=main"]
   - ["git", "add", "."]
   - ["git", "commit", "-m", "Initial commit from Copier template"]
-  - ["git", "tag", "-a", "v0.1.0", "-m", "Initial release from Copier template"]
+  - ["git", "tag", "-a", "v{{ project_version }}", "-m", "Initial release from Copier template"]
 
 _jinja_extensions:
   - jinja2_time.TimeExtension

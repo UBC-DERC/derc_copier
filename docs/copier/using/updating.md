@@ -48,7 +48,7 @@ collaborator exactly &mdash; you can pin to a specific tagged version with
 `--vcs-ref`:
 
 ```bash
-copier copy --vcs-ref v0.1.0 https://github.com/UBC-DERC/derc_copier . --trust
+copier copy --vcs-ref v26.08 https://github.com/UBC-DERC/derc_copier . --trust
 ```
 
 The same flag works with `copier update` if you want to move to (or stay on) a
