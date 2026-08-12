@@ -33,8 +33,10 @@ jobs:
         primary_language: [python, r]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: Put uv tool bin on PATH
-        run: echo "UV_TOOL_BIN_DIR=$RUNNER_TEMP/uv-tool-bin" >> "$GITHUB_ENV" 
+      - name: Put uv tool bin on PATH and in ENV so we can access copier once it is installed.
+        run: |
+          echo "UV_TOOL_BIN_DIR=$RUNNER_TEMP/uv-tool-bin" >> "$GITHUB_ENV"                                                                                                                             
+          echo "$RUNNER_TEMP/uv-tool-bin"                 >> "$GITHUB_PATH"
 
       - name: Configure git identity (required by the template's post-tasks)
         run: |
