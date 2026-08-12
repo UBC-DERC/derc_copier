@@ -1,5 +1,15 @@
 
-.vscode/
+# Ignore this repo's own editor folder, but not the template's (template/.vscode).
+/.vscode/
+
+# Local, personal brainstorming/working notes (not shared).
+/brainstorming/
 
 # Uncomment the following line to ignore the data/raw directory.
 # data/raw/
+
+.ctt/
+.venv
+codeql-custom-queries-python/
+
+site/

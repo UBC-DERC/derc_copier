@@ -1,0 +1,2 @@
+# Empty Rprofile file, except to activate the environment.
+source("renv/activate.R")

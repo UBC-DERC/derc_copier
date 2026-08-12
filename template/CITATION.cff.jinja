@@ -1,11 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-  family-names: {{ author_formal }}
-  given-names: {{ author_given }}
-  orcid: {{ author_orcid}}
-title: {{ project_name }}
+  - family-names: "{{ author_formal }}"
+    given-names: "{{ author_given }}"
+    {% if author_orcid %}orcid: {{ author_orcid}} {% endif %}
+{% if project_description %}abstract: "{{ project_description }}"{% endif %}
+title: {{ project_title }}
 version: {{ project_version }}
-doi: {{ project_doi }}
-date-released: {{ project_date }}
-url: https://github.com/{{project_repository}}/{{ project_URL }}
+{% if project_doi %}doi: {{ project_doi }}{% endif %}
+{%- if project_date %}date-released: {{ project_date }}{% endif %}
+url: https://{{ git_platform }}/{{ project_repository }}/{{ project_name }}
+{% if not license_type == "No License" %}license: {{license_type}}{% endif %}

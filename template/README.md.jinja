@@ -8,16 +8,16 @@
 {% if data_location %}
 [![Dataset DOI](https://img.shields.io/badge/DOI-{{ data_location }}-blue.svg)](https://doi.org/{{ data_location }})
 {% endif %}
-{% if license_type == "MIT License" %}
+{% if license_type == "MIT" %}
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-{% elif license_type == "Mozilla Public License 2.0" %}
+{% elif license_type == "MPL-2.0" %}
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
-{% elif license_type == "Apache License 2.0" %}
+{% elif license_type == "Apache-2.0" %}
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 {% endif %}
 <!-- badges: end -->
 
-# {{ project_name }}
+# {{ project_title }}
 
 {{ project_description }}
 
@@ -34,7 +34,7 @@ and optionally, pointers to resources that can help orient readers.
 This project was developed by:
 
 {% if author_orcid %}
-* [![ORCID](https://img.shields.io/badge/ORCID-{{ author_orcid }}-green.svg)]({{ author_orcid }}): {{ author_given }} {{ author_formal }}
+* [![ORCID](https://img.shields.io/badge/ORCID-{{ author_orcid | regex_replace('^https?://orcid\.org/', '') | regex_replace('-', '--') }}-green.svg)]({{ author_orcid }}): {{ author_given }} {{ author_formal }}
 {% else %}
 * {{ author_given }} {{ author_formal }}
 {% endif %}

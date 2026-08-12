@@ -1,16 +1,22 @@
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
+[![core_actions](https://github.com/UBC-DERC/derc_copier/actions/workflows/validation.yml/badge.svg)](https://github.com/UBC-DERC/derc_copier/actions/workflows/validation.yml)
+
 # DERC Copier
 
 This is a [copier](https://copier.readthedocs.io/en/stable/) project, designed to help researchers within DERC create high quality repositories to be shared publically, using best practice approaches. We identify both R and Python as key coding languages for researchers using DERC data, and aim to support them in developing clear workflows through the development of a clear "DERC" branding for projects.
 
 Our goal is to support researchers in developing high quality code repositories for their work. This helps researchers meet the goals of [FAIR Research](https://www.go-fair.org/fair-principles/) by making their research **F**indable (with DOIs, improved metadata, and clear citations), **A**ccessible (with readable and clearly licensed code), **I**nteroperable (improving code practices using tools like `ruff` to improve common coding issues, and ensuring that data outputs and inputs are clearly identified) and **R**eusable (making tools like `uv` and virtual environments easier to manage).
 
+## Why Should I Use This?
+
+Even if you don't use GitHub, this project will help you develop high quality code by providing a roadmap for development. It will give you the tools needed to organize your data, and point to important tools (like `uv`, `ruff` and others) that will help you manage your code.
+
 ## Using this Repository
 
-`copier` works by generating a folder structure from a set of template files. To use `copier` you first need to [install it](https://pypi.org/project/copier/) on your computer.
+`copier` works by generating a folder structure from a set of template files. We have tried to meet best practices for both software and research projects in our development, to help you create the best project possible. To use `copier` you first need to [install it](https://pypi.org/project/copier/) on your computer.
 
-Currently we strongly recommend using `uv` as part of your Python toolkit.  If you have Python and `uv` installed, you can add `copier` using:
+Currently we strongly recommend using `uv` as part of your Python toolkit. If you have Python and `uv` installed, you can add `copier` using:
 
 ```bash
 uv tool install copier
@@ -19,27 +25,34 @@ uv tool install copier
 To use this template, build from this repository, and point to the directory you want to copy the files to.
 
 ```bash
-copier copy https://github.com/UBC-DERC/derc_copier path/to/destination
+copier copy https://github.com/UBC-DERC/derc_copier path/to/destination --trust
 ```
 
 This then gives you a set of prompts to work through, asking information about your name, the project name, and some other choices. These choices will populate a folder with a set of supporting files to help you develop robust code.
 
-**NOTE**: This implementation initializes a `git` folder for you as part of the process. Because of this you will be asked to add `--trust` to your `copier` command.
-
-
+**NOTE**: This implementation initializes a `git` folder (for version control) for you as part of the process. Because of this you will be asked to add `--trust` to your `copier` command.
 
 ### What is Required
 
 To begin you are asked some information to help populate the files. These values may be left blank, or you may revisit and revise the values later. They are simply used to initialize things. If you don't have a good idea of your project description yet, don't worry, you can go back later and edit it in your `README` file.
 
-Here are the fields we ask for:
+The full list of questions is visible in the [`copier/questions/questions.yml`](copier/questions/questions.yml) file. Questions are listed as required (`project_name` and `package_name`) or optional.
 
-* Project Name: A short descriptive name for your project.
-* Project Description: A longer (paragraph) descriptive statement to help people understand why they might want to look at this project.
-* Your name:
-  * Names come in all sorts of different shapes and sized. We ask for a "Formal" and a "Given" name. We do this to support scholarly citation. The formal name would be the name you'd use in professional settings, if you were addressed as Prof. XXXX. The "Given" name is used as part of your citation: `XXXXX, YYY Y.` for example, where XXXXX is your formal name, and `YYY Y.` is the first part of your name as you'd use it in a citation.
-* Your ORCID:
-  * ORCIDs are widely used for scholarly publications. They are unique individual identifiers that can be connected to publications and datasets, and they are self-managed. A goal of using them here is that you can connect your ORCID to your code as well. DOIs can be issued for GitHub (or other) code repositories. By linking you can have your code repositories added to your ORCID profile to show the breadth of your scholarly output.
-* Copyright Year: Generally the default is the current year.
-* License Type: Appropriate software licensing is an ongoing discussion in academia and elsewhere. We provide a selection of open source licenses here to choose from. If you use confidential data, or data that is part of an NDA or other agreement then you may choose to skip or remove the license file.
-* Code of Conduct: A Code of Conduct is a critical component of any software repository (and project generally). This question allows you to choose a code of conduct in one of several languages.
+**You don't have to answer everything now!**
+
+The nice thing about `copier` is that it lets us update over time. If we improve these templates, you can update. If you have new answers you can update.
+
+### Updating My Answers
+
+After you've created your folder setup you will see a file called `.copier_answers.yml`. This contains all your answers, including answers to the questions you skipped. At any time you can edit these answers, and then update your repository with the command: `copier update`.
+
+## Testing
+
+It's always important to test projects. For this project we use the [`ctt`](https://copier-template-tester.kyleking.me/) (copier-template-tester) package. `ctt` uses the [`ctt.toml`](ctt.toml) file to provide a set of pre-defined answers for various scenarios. Running:
+
+```bash
+uv run ctt
+```
+
+This will generate a set of templates in a new `.ctt` folder. Once the folder has been checked, you will know whether or not the template works.
+

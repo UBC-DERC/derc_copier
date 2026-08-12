@@ -1,0 +1,18 @@
+Package: {{ project_name }}
+Title: {{ project_title }}
+Version: {{ project_version }}
+Description: {{ project_description }}
+Authors@R: person("{{ author_given }}", "{{ author_formal }}",
+  email = "{{ author_email }}",
+  role = c("cre", "aut"),
+  comment = c(ORCID = "{{ author_orcid }}"))
+License: {{ license_type }}
+Depends: R (>= 4.0.0)
+Suggests:
+  testthat,
+  lintr
+Imports:
+  assertthat
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
