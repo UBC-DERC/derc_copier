@@ -47,6 +47,14 @@ Installation instructions are [here](https://docs.astral.sh/uv/getting-started/i
 Because `copier` is a Python command-line tool, `uv` can install and run it for you
 &mdash; you do **not** need to use `pip`. There are two approaches, and either works.
 
+!!! note "Why `jinja2-time`?"
+
+    This template uses the `jinja2_time.TimeExtension` Jinja extension to stamp
+    dates into your generated project. That extension must be available in the
+    same environment as `copier`, so both install options below include it with
+    `--with jinja2-time`. If you omit it, generation fails with
+    `ModuleNotFoundError: No module named 'jinja2_time'`.
+
 **Option 1 &mdash; run it without installing (recommended for one-offs):**
 `uvx` (short for `uv tool run`) downloads `copier` into a temporary, cached
 environment and runs it immediately. This is ideal if you only occasionally
@@ -54,23 +62,24 @@ create or update a project, or if you work primarily in R and don't want a
 permanent Python tool installed:
 
 ```bash
-uvx copier --version
+uvx --with jinja2-time copier --version
 ```
 
 Anywhere the rest of this guide shows a `copier ...` command, you can simply
-prefix it with `uvx`, for example `uvx copier copy ...`.
+prefix it with `uvx --with jinja2-time`, for example
+`uvx --with jinja2-time copier copy ...`.
 
 **Option 2 &mdash; install it as a persistent tool:**
 If you expect to use `copier` regularly, install it once so the bare `copier`
 command is always available on your `PATH`:
 
 ```bash
-uv tool install copier
+uv tool install --with jinja2-time copier
 ```
 
 You can later upgrade it with `uv tool upgrade copier`. The commands in the rest
 of this guide are written assuming you installed `copier` this way; if you
-prefer Option 1, just remember to prefix them with `uvx`.
+prefer Option 1, just remember to prefix them with `uvx --with jinja2-time`.
 
 ## Installing R (R projects only)
 

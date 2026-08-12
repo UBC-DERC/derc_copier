@@ -47,7 +47,11 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
-          enable-cache: true
+          # This workflow never checks out the repo (it tests the student install
+          # flow via `copier copy` against the remote repo), so there are no
+          # dependency files to hash for a cache key. Caching here would only warn
+          # about "cache will never get invalidated", so disable it.
+          enable-cache: false
 
       # R projects need R + Rscript on PATH so the template's renv init post-task
       # can run. Python projects don't need this leg.
@@ -59,7 +63,9 @@ jobs:
 
       - name: Install copier as a persistent tool
         # Mirrors installing.md "Option 2 - install it as a persistent tool".
-        run: uv tool install copier
+        # copier.yml uses the jinja2_time.TimeExtension Jinja extension, which must
+        # be importable from copier's isolated tool venv, so inject it with --with.
+        run: uv tool install --with jinja2-time copier
 
       - name: Generate a project from the template (documented flow)
         # Mirrors building.md. --defaults/--data replace the interactive prompts
