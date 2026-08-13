@@ -1,12 +1,17 @@
 # Installing the Tools
 
-`copier` is a Python program that you run from the commandline, however, it runs
-using a project called `uv`. This means we can run `copier` without fully
-installing Python (if you're working with R for example).
+`copier` is a Python command-line program, but you don't need to install Python
+yourself to use it. In this guide we run `copier` through
+[`uv`](https://docs.astral.sh/uv/) &mdash; a small, fast tool that can download and
+run Python programs for you.
 
-Before you build a project you'll need a few tools. `git` and `copier` are always
-required; whether you need Python or R installed depends on your project's primary
-language.
+Before you build a project you'll need a few tools:
+
+- **`git`** and **`copier`** (run via **`uv`**) are always required.
+- **Python** or **R** may also be needed, depending on your project's primary
+  language.
+
+Install them in the order the sections below present them.
 
 ## Installing `git`
 
@@ -24,21 +29,13 @@ If you don't already have `git`, download it from
 [git-scm.com](https://git-scm.com/downloads). Installation instructions may be OS
 dependent.
 
-## Installing `python` (optional)
-
-If you install and run `copier` through `uv` (see below), you generally **do not**
-need to install Python yourself &mdash; `uv` will download and manage an appropriate
-Python version for you automatically. This is especially convenient if your project
-is primarily in R.
-
-If you would still like a system-wide Python installation, there is very good
-documentation online and downloads are free. Use the
-[Python Downloads](https://www.python.org/downloads/) page to install Python on your
-computer. Installation instructions may be OS dependent.
-
 ## Installing `uv`
 
-As with Python, installing `uv` may be OS dependent, and instructions may change over time. `uv` is a free tool, intended for developers primarily, to help manage your project dependencies. It is a _Python_ specific tool, and doesn't really work with R, but it is extremely useful, and relatively small.
+Like the other tools, installing `uv` may be OS dependent and instructions may
+change over time. `uv` is a small, free tool that installs and runs Python programs
+(and manages their dependencies) for us. It is Python-specific &mdash; it does not
+manage R packages &mdash; but we use it here to install and run `copier`, and it can
+also manage a Python project's dependencies.
 
 Installation instructions are [here](https://docs.astral.sh/uv/getting-started/installation/)
 
@@ -53,7 +50,7 @@ Because `copier` is a Python command-line tool, `uv` can install and run it for 
     dates into your generated project. That extension must be available in the
     same environment as `copier`, so both install options below include it with
     `--with jinja2-time`. If you omit it, generation fails with
-    `ModuleNotFoundError: No module named 'jinja2_time'`.
+    `Copier could not load some Jinja extensions: No module named 'jinja2_time'`.
 
 **Option 1 &mdash; run it without installing (recommended for one-offs):**
 `uvx` (short for `uv tool run`) downloads `copier` into a temporary, cached
@@ -80,6 +77,18 @@ uv tool install --with jinja2-time copier
 You can later upgrade it with `uv tool upgrade copier`. The commands in the rest
 of this guide are written assuming you installed `copier` this way; if you
 prefer Option 1, just remember to prefix them with `uvx --with jinja2-time`.
+
+## Installing `python` (optional)
+
+If you install and run `copier` through `uv` as described above, you generally **do
+not** need to install Python yourself &mdash; `uv` will download and manage an
+appropriate Python version for you automatically. This is especially convenient if
+your project is primarily in R.
+
+If you would still like a system-wide Python installation, there is very good
+documentation online and downloads are free. Use the
+[Python Downloads](https://www.python.org/downloads/) page to install Python on your
+computer. Installation instructions may be OS dependent.
 
 ## Installing R (R projects only)
 
