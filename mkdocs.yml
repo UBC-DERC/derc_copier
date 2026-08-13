@@ -1,26 +1,102 @@
 site_name: DERC GitHub Best Practices
+site_url: https://ubc-derc.github.io/derc_copier
+site_description: >-
+  Documentation and best practices for creating reproducible R and Python research
+  projects from the UBC DERC copier template, covering setup, attribution,
+  community, and organization.
+site_author: UBC Dairy Education and Research Centre (DERC)
+copyright: >-
+  Copyright &copy; UBC Dairy Education and Research Centre (DERC)
+
+repo_url: https://github.com/UBC-DERC/derc_copier
+repo_name: UBC-DERC/derc_copier
+edit_uri: edit/main/docs/
 
 theme:
   name: material
+  language: en
+  # Whitney (the UBC brand face) is proprietary and can't be embedded, so we use
+  # Source Sans 3, a free humanist sans-serif with a similar feel.
+  font:
+    text: Source Sans 3
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
   features:
     - navigation.indexes
     - navigation.sections
     - navigation.top
     - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.prefetch
+    - navigation.footer
     - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.action.edit
     - content.code.copy
+    - content.tabs.link
   palette:
-    - scheme: default
+    # Respect the reader's operating-system preference by default.
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode
+        name: Switch to system preference
+
+plugins:
+  # `search` must be declared explicitly once any other plugin is listed.
+  - search
+  - social
+  - git-revision-date-localized:
+      type: date
+      fallback_to_build_date: true
+      enable_creation_date: true
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - stylesheets/ubc.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/UBC-DERC/derc_copier
+      name: DERC copier template on GitHub
 
 nav:
   - Home: index.md
+  - Template Features: features.md
   - Using the DERC Template:
       - copier/using/index.md
       - Installing the Tools: copier/using/installing.md
@@ -28,6 +104,7 @@ nav:
       - Keeping in Sync: copier/using/updating.md
   - Best Practices:
       - copier/index.md
+      - Building Better Code: copier/building/index.md
       - It's Your Work — Attribution: copier/attribution/index.md
       - Building Community: copier/community/index.md
       - Staying Organized: copier/organization/index.md

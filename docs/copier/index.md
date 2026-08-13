@@ -14,15 +14,14 @@ your own work.
 
 ## In this section
 
+* [**Building Better Code**](building/index.md) &mdash; style, testing, and the
+  tooling that keeps your code clean and reliable.
 * [**It's Your Work &mdash; Attribution**](attribution/index.md) &mdash; citation,
   licensing, and describing your work so it can be found and credited.
 * [**Building Community**](community/index.md) &mdash; codes of conduct,
   contribution guides, and documentation that make a project welcoming.
 * [**Staying Organized**](organization/index.md) &mdash; folder structure, package
   and library management, version control, and changelogs.
-
-> **Coming soon:** *Writing Better Code* &mdash; style guides, testing, and
-> containers.
 
 ## How the template fits in
 

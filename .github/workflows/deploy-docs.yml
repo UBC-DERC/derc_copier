@@ -1,0 +1,61 @@
+# Build and publish the mkdocs-material documentation site to GitHub Pages.
+#
+# The site uses the mkdocs-material `social` plugin, which renders preview cards
+# with Cairo/Pillow. The generated cards are NOT committed (see /.cache/ in
+# .gitignore), so this runner must install the Cairo system libraries (and a
+# font) before building, otherwise the social step fails.
+#
+# The `git-revision-date-localized` plugin reads each page's git history to show
+# "last updated" dates, so we check out the full history (fetch-depth: 0).
+
+name: deploy_docs
+
+on:
+  # Deploy only after the install_flow workflow finishes on main. We gate on a
+  # successful conclusion in the job's `if` below, so failed/cancelled runs of
+  # install_flow do not publish the docs.
+  workflow_run:
+    workflows: ["install_flow"]
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    # workflow_run fires for every conclusion (success, failure, cancelled), so
+    # only proceed when install_flow actually passed. Manual runs
+    # (workflow_dispatch) have no workflow_run payload and are always allowed.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      # gh-deploy pushes the built site to the gh-pages branch.
+      contents: write
+    steps:
+      - name: Checkout (full history for git-revision-date plugin)
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          # Deploy the exact commit install_flow validated (falls back to the
+          # default branch for manual runs).
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
+
+      - name: Install Cairo + font (required by the mkdocs-material social plugin)
+        run: sudo apt-get update && sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev fonts-roboto
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+
+      - name: Configure git identity (gh-deploy commits the built site)
+        run: |
+          git config --global user.name "DERC CI"
+          git config --global user.email "ci@ubc-derc.example"
+
+      - name: Install project (docs dependencies)
+        run: uv sync
+
+      - name: Build and deploy to GitHub Pages
+        run: uv run mkdocs gh-deploy --force

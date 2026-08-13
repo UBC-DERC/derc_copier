@@ -1,0 +1,31 @@
+/*
+ * UBC "common look and feel" accents for Material for MkDocs.
+ *
+ * Colours are borrowed from the UBC CLF design specifications
+ * (https://clf.ubc.ca/design-specifications/): UBC Blue #002145 and its
+ * lighter tint ramp. We do not reproduce the CLF exactly; we just echo the
+ * palette so the site feels UBC-adjacent.
+ *
+ * Every text/link colour below was checked for WCAG AA contrast (>= 4.5:1)
+ * against its background. Lighter tints only appear on dark backgrounds, where
+ * they pass; on white they would not.
+ */
+
+/* Light mode */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #002145; /* UBC Blue: header + nav       */
+  --md-primary-fg-color--light: #2f5d7c;
+  --md-primary-fg-color--dark:  #001730;
+  --md-primary-bg-color:        #ffffff; /* text/icons on the header     */
+  --md-accent-fg-color:         #002145; /* hover / active accents       */
+  --md-typeset-a-color:         #2f5d7c; /* body links: 7.05:1 on white  */
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #002145;
+  --md-primary-fg-color--light: #2f5d7c;
+  --md-primary-fg-color--dark:  #001730;
+  --md-accent-fg-color:         #c3d0db; /* light tint reads on dark     */
+  --md-typeset-a-color:         #98b2c3; /* body links: 7.27:1 on slate  */
+}

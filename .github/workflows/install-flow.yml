@@ -7,6 +7,8 @@
 # Runs on `main` only. If every matrix leg passes, a CalVer tag is created on the
 # tested commit (that tag is what `copier copy` then hands to students).
 
+name: install_flow
+
 on:
   push:
     branches:
