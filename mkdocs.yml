@@ -21,6 +21,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Template Features: features.md
   - Using the DERC Template:
       - copier/using/index.md
       - Installing the Tools: copier/using/installing.md
@@ -28,6 +29,7 @@ nav:
       - Keeping in Sync: copier/using/updating.md
   - Best Practices:
       - copier/index.md
+      - Building Better Code: copier/building/index.md
       - It's Your Work — Attribution: copier/attribution/index.md
       - Building Community: copier/community/index.md
       - Staying Organized: copier/organization/index.md
