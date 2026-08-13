@@ -1,6 +1,6 @@
 [project]
 name = "derc-copier"
-version = "0.1.0"
+version = "26.08"
 description = "A templating tool for UBC DERC programming projects."
 readme = "README.md"
 authors = [
@@ -26,5 +26,6 @@ dev = [
     "cffconvert>=2.0.0",
     "copier-template-tester>=2.5.0",
     "mkdocs>=1.6.1",
+    "mkdocs-material>=9.7.7",
     "ruff>=0.16.0",
 ]
