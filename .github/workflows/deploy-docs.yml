@@ -17,8 +17,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
   # workflow_run:
   #   workflows: ["install_flow"]
   #   types:
@@ -33,7 +31,7 @@ jobs:
     # workflow_run fires for every conclusion (success, failure, cancelled), so
     # only proceed when install_flow actually passed. Manual runs
     # (workflow_dispatch) have no workflow_run payload and are always allowed.
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     permissions:
       # gh-deploy pushes the built site to the gh-pages branch.
       contents: write
