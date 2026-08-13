@@ -59,9 +59,15 @@ jobs:
       # can run. Python projects don't need this leg.
       - name: Set up R
         if: ${{ matrix.primary_language == 'r' }}
-        uses: r-lib/actions/setup-r@929c772977a3a13c8733b363bf5a2f685c25dd91 # v2.9.0
+        uses: r-lib/actions/setup-r@d3c5be51b12e724e68f33216ca3c148b66d5f0b6 # v2.12.1
         with:
           use-public-rspm: true
+          # We only run Rscript to install the renv *binary* (served pre-built by
+          # public RSPM) and initialise a project. Nothing is compiled from
+          # source, so Rtools is unnecessary. Skipping it also avoids the
+          # flaky Rtools45 silent installer that hangs on windows-latest and
+          # fails with "Error: The operation was canceled."
+          rtools-version: 'none'
 
       - name: Install copier as a persistent tool
         # Mirrors installing.md "Option 2 - install it as a persistent tool".
