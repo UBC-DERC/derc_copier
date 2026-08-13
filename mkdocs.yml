@@ -15,6 +15,11 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: en
+  # Whitney (the UBC brand face) is proprietary and can't be embedded, so we use
+  # Source Sans 3, a free humanist sans-serif with a similar feel.
+  font:
+    text: Source Sans 3
+    code: Roboto Mono
   icon:
     repo: fontawesome/brands/github
   features:
@@ -79,6 +84,9 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.tabbed:
       alternate_style: true
+
+extra_css:
+  - stylesheets/ubc.css
 
 extra:
   social:
