@@ -13,3 +13,6 @@
 codeql-custom-queries-python/
 
 site/
+
+# mkdocs-material social plugin build cache (regenerated on every build).
+/.cache/

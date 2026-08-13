@@ -24,7 +24,7 @@ Imagine we've decided to create a new project called `newproject`. First create 
 directory called `newproject`, then open your shell (PowerShell, Terminal, or
 another) and move into that directory:
 
-![Creating the directory](../../assets/directorypath.png)
+![A terminal showing the change into the newly created project directory](../../assets/directorypath.png)
 
 Once we're in that directory you can create your new project from the template. The
 `.` tells `copier` to build the project into the current directory:
