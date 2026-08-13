@@ -157,6 +157,11 @@ jobs:
       - name: Create and push tag
         run: |
           set -euo pipefail
+          # Annotated tags record a tagger identity, so configure it here.
+          # This job is separate from install-flow, so its git identity does
+          # not carry over.
+          git config user.name "DERC CI"
+          git config user.email "ci@ubc-derc.example"
           tag="${{ steps.calver.outputs.tag }}"
           git tag -a "$tag" -m "Release $tag (passed cross-OS install e2e for ${GITHUB_SHA})"
           git push origin "$tag"
