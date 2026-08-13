@@ -14,11 +14,16 @@ on:
   # Deploy only after the install_flow workflow finishes on main. We gate on a
   # successful conclusion in the job's `if` below, so failed/cancelled runs of
   # install_flow do not publish the docs.
-  workflow_run:
-    workflows: ["install_flow"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
   workflow_dispatch:
+
+  # workflow_run:
+  #   workflows: ["install_flow"]
+  #   types:
+  #     - completed
+  # workflow_dispatch:
 
 permissions: {}
 
