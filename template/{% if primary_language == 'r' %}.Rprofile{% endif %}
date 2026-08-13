@@ -1,2 +1,7 @@
 # Empty Rprofile file, except to activate the environment.
-source("renv/activate.R")
+# Guard the source() call: during initial project generation the renv
+# post-task runs `Rscript`, which sources this .Rprofile at startup BEFORE
+# `renv::init()` has created renv/activate.R. Without this check that first
+# run fails with "cannot open file 'renv/activate.R'". Once renv is
+# initialised the file exists and is sourced normally.
+if (file.exists("renv/activate.R")) source("renv/activate.R")
