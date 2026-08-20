@@ -34,3 +34,8 @@ primary_language = "r"
 [output.".ctt/python-proj"]
 primary_language = "python"
 project_title = "My Project"
+
+[output.".ctt/awardlists"]
+nserc_award = "RGPIN-2023-04350,RGPIN-2023-04350, RGPIN-2021-04350"
+cihr_award = "123450"
+sshrc_award = "410-2004-1234"

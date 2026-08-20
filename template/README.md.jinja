@@ -1,10 +1,23 @@
 <!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-{{ lifecycle }}-{{ lifecycle_color }}.svg)]()
-{% if award_number %}
-{%- for item in award_number.split(',') | map('trim') -%}
-[![NSERC](https://img.shields.io/badge/NSERC-{{ award_number }}-red.svg)](https://nserc-crsng.canada.ca/en/awards-database/{{ award_number }})
+
+{% if nserc_award %}
+{%- for item in nserc_award.split(',') | map('trim') -%}
+[![NSERC](https://img.shields.io/badge/NSERC|CRNSG-{{ item | regex_replace('-', '--') }}-DF202D.svg)](https://nserc-crsng.canada.ca/en/awards-database?keywords={{ item }}&op=Search)
 {% endfor %}
 {% endif %}
+{% if chir_award %}
+{%- for item in chir_award.split(',') | map('trim') -%}
+[![CHIR](https://img.shields.io/badge/CHIR|IRSC-{{ item | regex_replace('-', '--') }}-34A53D.svg)]()
+{% endfor %}
+{% endif %}
+{% if sshrc_award %}
+{%- for item in sshrc_award.split(',') | map('trim') -%}
+[![SSHRC](https://img.shields.io/badge/SSHRC|CRSH-{{ item | regex_replace('-', '--') }}-90b0da.svg)]()
+{% endfor %}
+{% endif %}
+
+
 {% if data_location %}
 [![Dataset DOI](https://img.shields.io/badge/DOI-{{ data_location }}-blue.svg)](https://doi.org/{{ data_location }})
 {% endif %}
