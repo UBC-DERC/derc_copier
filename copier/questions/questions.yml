@@ -316,3 +316,19 @@ include_quarto:
   default: true
   help: Will you be using a Quarto notebook for manuscript or document writing?
   when: true
+
+archived_data:
+  type: bool
+  default: false
+  help: Have you already archived your data in a repository such as Zenodo, Borealis or Dataverse?
+  when: true
+
+data_location:
+  type: str
+  default: ""
+  help: If you have already archived your data, please provide the DOI for the repository where your data is stored (using the format 10.1234/your_doi).
+  when: "{{ archived_data }}"
+  validator: >-
+    {% if archived_data and not (data_location | regex_search('^10\.\d{4,9}\/[-._;()/:A-Za-z0-9]+$')) %}
+    Your DOI must be in the format 10.1234/your_doi.
+    {% endif %}
