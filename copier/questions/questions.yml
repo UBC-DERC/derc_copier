@@ -8,7 +8,6 @@ project_title:
     For an R project, we will remove all spaces, dashes and underscores in your paths, to fit with R project naming conventions.
     For Python projects, all underscores and spaces will be replaced by dashes.
   default: new-derc-project
-  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}" 
   validator: >-
     {% if not (project_title | regex_search('^[a-zA-Z][a-zA-Z0-9\- ]+$')) %}
     Your project_name must start with a letter, followed one or more letters, digits, dashes, spaces and underscores all lowercase.
