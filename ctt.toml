@@ -31,11 +31,21 @@ license_type = "No License"
 project_title = "My Project"
 primary_language = "r"
 
+[output.".ctt/other-proj"]
+project_title = "Ruby programming package"
+primary_language = "other"
+license_type = "MIT"
+version = "26.08"
+sshrc_award = "410-2004-1234"
+
+
 [output.".ctt/python-proj"]
 primary_language = "python"
 project_title = "My Project"
+git_use = false
 
 [output.".ctt/awardlists"]
+project_title = "AllAwards"
 nserc_award = "RGPIN-2023-04350,RGPIN-2023-04350, RGPIN-2021-04350"
 cihr_award = "123450"
 sshrc_award = "410-2004-1234"
