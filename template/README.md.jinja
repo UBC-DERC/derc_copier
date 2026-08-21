@@ -4,17 +4,19 @@
 {% if nserc_award != "" %}
 {%- for item in nserc_award.split(',') | map('trim') -%}
 [![NSERC](https://img.shields.io/badge/NSERC|CRNSG-{{ item | regex_replace('-', '--') }}-DF202D.svg)](https://nserc-crsng.canada.ca/en/awards-database?keywords={{ item }}&op=Search)
-{% endfor %}
+{% endfor -%}
 {% endif %}
+
 {% if cihr_award != "" %}
 {%- for item in cihr_award.split(',') | map('trim') -%}
 [![CIHR](https://img.shields.io/badge/CIHR|IRSC-{{ item | regex_replace('-', '--') }}-34A53D.svg)]()
-{% endfor %}
+{% endfor -%}
 {% endif %}
+
 {% if sshrc_award != "" %}
 {%- for item in sshrc_award.split(',') | map('trim') -%}
 [![SSHRC](https://img.shields.io/badge/SSHRC|CRSH-{{ item | regex_replace('-', '--') }}-90b0da.svg)]()
-{% endfor %}
+{% endfor -%}
 {% endif %}
 
 {% if data_location != ""%}

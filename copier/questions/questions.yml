@@ -10,7 +10,7 @@ project_title:
   default: new-derc-project
   validator: >-
     {% if not (project_title | regex_search('^[a-zA-Z][a-zA-Z0-9\- ]+$')) %}
-    Your project_name must start with a letter, followed one or more letters, digits, dashes, spaces and underscores all lowercase.
+    Your project_name must start with a letter, followed one or more letters, digits, dashes, spaces and underscores.
     {% endif %}
   when: true
 
