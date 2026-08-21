@@ -1,7 +1,7 @@
 
 [defaults]
 project_title = "This Big Title Name"
-project_repository = "UBC-DERC"
+project_organization = "UBC-DERC"
 git_platform = "github.com"
 project_description = "A copier placeholder to make sure things work."
 author_formal = "LastName IV"
@@ -15,7 +15,9 @@ primary_language = "r"
 [output.".ctt/copier_include"]
 version = "1.2.3"
 
-[output.".ctt/mpl"]
+[output.".ctt/mpl_withdoi"]
+archived_data = true
+data_location = "10.2345/data12345"
 license_type = "MPL-2.0"
 
 [output.".ctt/apache"]
@@ -31,6 +33,21 @@ license_type = "No License"
 project_title = "My Project"
 primary_language = "r"
 
+[output.".ctt/other-proj"]
+project_title = "Ruby programming package"
+primary_language = "other"
+license_type = "MIT"
+version = "26.08"
+sshrc_award = "410-2004-1234"
+
+
 [output.".ctt/python-proj"]
 primary_language = "python"
 project_title = "My Project"
+git_use = false
+
+[output.".ctt/awardlists"]
+project_title = "AllAwards"
+nserc_award = "RGPIN-2023-04350,RGPIN-2023-04350, RGPIN-2021-04350"
+cihr_award = "123450"
+sshrc_award = "410-2004-1234"

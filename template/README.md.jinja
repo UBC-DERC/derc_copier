@@ -1,12 +1,24 @@
 <!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-{{ lifecycle }}-{{ lifecycle_color }}.svg)]()
-{% if award_number %}
-{%- for item in award_number.split(',') | map('trim') -%}
-[![NSERC](https://img.shields.io/badge/NSERC-{{ award_number }}-red.svg)](https://nserc-crsng.canada.ca/en/awards-database/{{ award_number }})
+
+{% if nserc_award != "" %}
+{%- for item in nserc_award.split(',') | map('trim') -%}
+[![NSERC](https://img.shields.io/badge/NSERC|CRNSG-{{ item | regex_replace('-', '--') }}-DF202D.svg)](https://nserc-crsng.canada.ca/en/awards-database?keywords={{ item }}&op=Search)
 {% endfor %}
 {% endif %}
-{% if data_location %}
-[![Dataset DOI](https://img.shields.io/badge/DOI-{{ data_location }}-blue.svg)](https://doi.org/{{ data_location }})
+{% if cihr_award != "" %}
+{%- for item in cihr_award.split(',') | map('trim') -%}
+[![CIHR](https://img.shields.io/badge/CIHR|IRSC-{{ item | regex_replace('-', '--') }}-34A53D.svg)]()
+{% endfor %}
+{% endif %}
+{% if sshrc_award != "" %}
+{%- for item in sshrc_award.split(',') | map('trim') -%}
+[![SSHRC](https://img.shields.io/badge/SSHRC|CRSH-{{ item | regex_replace('-', '--') }}-90b0da.svg)]()
+{% endfor %}
+{% endif %}
+
+{% if data_location != ""%}
+[![Dataset DOI](https://img.shields.io/badge/DOI-{{ data_location | regex_replace('/', '%2F' )}}-blue.svg)](https://doi.org/{{ data_location }})
 {% endif %}
 {% if license_type == "MIT" %}
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -46,9 +58,8 @@ Contributions to this repository are expected to follow the [Code of Conduct](CO
 To install `{{ project_name }}` from this GitHub repository, either install using a graphical tool such as GitKraken or GitHub Desktop, or install from the console using:
 
 ```bash
-git clone https://github.com/{{ project_repository }}/{{ project_name }}.git
+git clone https://github.com/{{ project_organization }}/{{ project_name }}.git
 cd {{ project_name }}
-python -m pip install .
 ```
 
 ## How to Use this Repository
@@ -57,11 +68,43 @@ python -m pip install .
 A short description of how this repository is expected to be used.
 -->
 
+{% if primary_language == "python" %}
+### Setting up the `uv` environment
+
+This project uses `uv` as a package manager and to manage virtual environments. To use development tools including `ruff` and `ty`, you first need to install and synchronize the project. First check that you have [`uv` installed](https://docs.astral.sh/uv/getting-started/installation/).
+
+```bash
+uv sync
+```
+
+Now you are ready to work on the project.
+{% endif %}
+
+{% if primary_language == "r" %}
+### Setting up the R/Renv environment
+
+This project uses `devtools` and `Renv` as project development tools. You are ready to work on the project.
+{% endif %}
+
 ## Funding Statement
 
 <!--
 A short statement about your funding sources.
 -->
+
+{%- if nserc_award != "" %}
+We acknowledge the support of the Natural Sciences and Engineering Research Council of Canada (NSERC), {{ nserc_award }}
+
+Cette recherche a été financée par le Conseil de recherches en sciences naturelles et en génie du Canada (CRSNG), {{ nserc_award }}.
+{% endif %}
+
+{% if cihr_award != "" %}
+{{ project_title }} is supported by the Canadian Institutes of Health Research (CIHR).
+{% endif %}
+
+{% if sshrc_award != "" %}
+{{ project_title }} is supported in part by funding from the Social Sciences and Humanities Research Council of Canada.
+{% endif %}
 
 ---
 

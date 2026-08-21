@@ -8,7 +8,6 @@ project_title:
     For an R project, we will remove all spaces, dashes and underscores in your paths, to fit with R project naming conventions.
     For Python projects, all underscores and spaces will be replaced by dashes.
   default: new-derc-project
-  when: "{{ template_profile in ['minimum', 'recommended', 'ask'] }}" 
   validator: >-
     {% if not (project_title | regex_search('^[a-zA-Z][a-zA-Z0-9\- ]+$')) %}
     Your project_name must start with a letter, followed one or more letters, digits, dashes, spaces and underscores all lowercase.
@@ -91,6 +90,14 @@ project_date:
     Your project_date must be in the format YYYY-MM-DD, where YYYY is the year, MM is the month, and DD is the day.
     {% endif %}
 
+git_use:
+  type: bool
+  help: |
+    Will you be using Git for version control for your project?
+    If you are unsure, we recommend that you select "yes".
+  default: true
+  when: "{{ template_profile in ['recommended', 'ask'] }}"
+
 git_platform:
   type: str
   help: |
@@ -101,9 +108,13 @@ git_platform:
     - gitlab.com
     - bitbucket.org
     - none
-  default: github.com
+  default: >-
+    {% if git_use %}github.com{% else %}none{% endif %}
+  when: >-
+    {% if (template_profile in ['recommended', 'ask']) and git_use %}
+    {% endif %}
 
-project_repository:
+project_organization:
   type: str
   help: |
     The name of your code versioning organization (e.g., your GitHub user name, or UBC-DERC). This will be used to generate the 
@@ -112,9 +123,9 @@ project_repository:
   default: UBC-DERC
   when: >-
     {% if (template_profile in ['recommended', 'ask']) and not (git_platform == "none") %}
-    {% endif %} 
+    {% endif %}
   validator: >-
-    {% if not (project_repository | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) and not (git_platform == "none") %}
+    {% if not (project_organization | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) and not (git_platform == "none") %}
     Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase.
     {% endif %}
 
@@ -158,6 +169,53 @@ author_email:
   validator: >-
     {% if not (author_email | regex_search('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')) %}
     Your author_email must be in the format email@example.com
+    {% endif %}
+
+any_award:
+  type: bool
+  help: |
+    Do you have any research funding awards that you would like to include in your citation file?
+    If you are unsure, we recommend that you select "no". If you are supported by multiple grants from one agency, enter the list with commas separating awards. For example: RGPIN-2023-04350,RGPIN-2024-04350
+  default: false
+  when: "{{ template_profile in ['ask'] }}"
+
+nserc_award:
+  type: str
+  help: |
+    If you have an NSERC award number, please enter it here using the format PROGRAMCODE-YYYY-GRANTID (e.g., RGPIN-2023-04350 or RGPIN-2023-04350,RGPIN-2024-04350 for multiple grants).
+    The code will be used to generate a badge on your README file, and will link to the citation file for your repository.
+    If you do not have an NSERC award number, please leave this blank.
+  default: ""
+  when: "{{ template_profile in ['ask'] and any_award }}"
+  validator: >-
+    {% if nserc_award and not (nserc_award | regex_search('^([A-Z]{1,6}-[12][0-9]{3}-[0-9]{5,8}(,*\s*))+$')) %}
+    Your nserc_award must be in the format PROGRAMCODE-YYYY-GRANTID.
+    {% endif %}
+
+cihr_award:
+  type: str
+  help: |
+    If you have a CIHR award number, please enter it here using the format NNNNNN (e.g., 123450 or 12345, 12346 for multiple awards).
+    The code will be used to generate a badge on your README file, and will link to the citation file for your repository.
+    If you do not have a CIHR award number, please leave this blank.
+  default: ""
+  when: "{{ template_profile in ['ask'] }}"
+  validator: >-
+    {% if cihr_award and not (cihr_award | regex_search('^(([0-9]{3,6})(,*\s*))+$')) %}
+    Your cihr_award must be in the format XXXxxx, where X is a digit.
+    {% endif %}
+
+sshrc_award:
+  type: str
+  help: |
+    If you have a SSHRC award number, please enter it here using the format XXXx-YYYY-XXXX (e.g., 410-2004-1234).
+    The code will be used to generate a badge on your README file, and will link to the citation file for your repository.
+    If you do not have a SSHRC award number, please leave this blank.
+  default: ""
+  when: "{{ template_profile in ['ask'] and any_award }}"
+  validator: >-
+    {% if sshrc_award and not (sshrc_award | regex_search('^(([0-9]{3,4}-[1,2][0-9]{3}-[0-9]{1,4})(,*\s*))+$')) %}
+    Your sshrc_award must be in the format 410-2004-1234, where X is a digit.
     {% endif %}
 
 copyright_year:
@@ -258,3 +316,19 @@ include_quarto:
   default: true
   help: Will you be using a Quarto notebook for manuscript or document writing?
   when: true
+
+archived_data:
+  type: bool
+  default: false
+  help: Have you already archived your data in a repository such as Zenodo, Borealis or Dataverse?
+  when: true
+
+data_location:
+  type: str
+  default: ""
+  help: If you have already archived your data, please provide the DOI for the repository where your data is stored (using the format 10.1234/your_doi).
+  when: "{{ archived_data }}"
+  validator: >-
+    {% if archived_data and not (data_location | regex_search('^10\.\d{4,9}\/[-._;()/:A-Za-z0-9]+$')) %}
+    Your DOI must be in the format 10.1234/your_doi.
+    {% endif %}
