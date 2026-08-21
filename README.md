@@ -19,7 +19,7 @@ Even if you don't use GitHub, this project will help you develop high quality co
 Currently we strongly recommend using `uv` as part of your Python toolkit. If you have Python and `uv` installed, you can add `copier` using:
 
 ```bash
-uv tool install copier
+uv tool install copier --with jinja2-time
 ```
 
 To use this template, build from this repository, and point to the directory you want to copy the files to.
