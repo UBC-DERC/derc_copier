@@ -14,7 +14,7 @@ _message_after_copy: |
     Your project "{{ project_name }}" has been successfully created in the 
     {{ _copier_conf.dst_path }} folder!
 
-    {% if template_profile != 'minimum' -%}
+    {% if template_profile != 'minimum' and git_use -%}
 
         Next steps:
 
@@ -24,8 +24,9 @@ _message_after_copy: |
                 git init
                 git add --all
                 git commit -m "first commit"
+                git tag -a v{{ project_version }} -m "Initial release from Copier template"
                 git branch -M main
-                git remote add origin https://{{ git_platform }}/{{ project_repository }}/{{ project_name}}.git
+                git remote add origin https://{{ git_platform }}/{{ project_org }}/{{ project_repository }}/{{ project_name}}.git
 
             - Push the initial commit to a new repo on GitHub
 

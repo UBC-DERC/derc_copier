@@ -114,7 +114,7 @@ git_platform:
     {% if (template_profile in ['recommended', 'ask']) and git_use %}
     {% endif %}
 
-project_repository:
+project_organization:
   type: str
   help: |
     The name of your code versioning organization (e.g., your GitHub user name, or UBC-DERC). This will be used to generate the 
@@ -123,9 +123,9 @@ project_repository:
   default: UBC-DERC
   when: >-
     {% if (template_profile in ['recommended', 'ask']) and not (git_platform == "none") %}
-    {% endif %} 
+    {% endif %}
   validator: >-
-    {% if not (project_repository | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) and not (git_platform == "none") %}
+    {% if not (project_organization | regex_search('^[a-zA-Z][a-zA-Z0-9\-]+$')) and not (git_platform == "none") %}
     Your repository name must start with a letter, followed one or more letters, digits or dashes all lowercase.
     {% endif %}
 

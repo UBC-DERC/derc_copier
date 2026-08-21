@@ -1,7 +1,7 @@
 
 [defaults]
 project_title = "This Big Title Name"
-project_repository = "UBC-DERC"
+project_organization = "UBC-DERC"
 git_platform = "github.com"
 project_description = "A copier placeholder to make sure things work."
 author_formal = "LastName IV"

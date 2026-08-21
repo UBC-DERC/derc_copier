@@ -59,9 +59,8 @@ Contributions to this repository are expected to follow the [Code of Conduct](CO
 To install `{{ project_name }}` from this GitHub repository, either install using a graphical tool such as GitKraken or GitHub Desktop, or install from the console using:
 
 ```bash
-git clone https://github.com/{{ project_repository }}/{{ project_name }}.git
+git clone https://github.com/{{ project_organization }}/{{ project_name }}.git
 cd {{ project_name }}
-python -m pip install .
 ```
 
 ## How to Use this Repository
@@ -70,11 +69,42 @@ python -m pip install .
 A short description of how this repository is expected to be used.
 -->
 
+{% if primary_language == "python" %}
+### Setting up the `uv` environment
+
+This project uses `uv` as a package manager and to manage virtual environments. To use development tools including `ruff` and `ty`, you first need to install and synchronize the project. First check that you have [`uv` installed](https://docs.astral.sh/uv/getting-started/installation/).
+
+```bash
+uv sync
+```
+
+Now you are ready to work on the project.
+{% endif %}
+
+{% if primary_language == "r" %}
+### Setting up the R/Renv environment
+
+This project uses `devtools` and `Renv` as project development tools. To set up your development environment run the following from the commandline once you've downloaded the repository:
+
+```bash
+Rscript {{ _copier_conf.src_path }}/copier/scripts/init_renv.R
+```
+
+Now you are ready to work on the project.
+{% endif %}
+
 ## Funding Statement
 
 <!--
 A short statement about your funding sources.
 -->
+
+{%- if nserc_award != "" %}
+We acknowledge the support of the Natural Sciences and Engineering Research Council of Canada (NSERC), {{ nserc_award }}
+
+Cette recherche a été financée par le Conseil de recherches en sciences naturelles et en génie du Canada (CRSNG), {{ nserc_award }}.
+{% endif %}
+
 
 ---
 
