@@ -17,6 +17,15 @@
 ---
 # Post-processing tasks to run after the template is rendered
 _tasks:
-  - ["echo", "Done!"]
+  - "{% if primary_language == 'r' %}Rscript {{ _copier_conf.src_path }}/copier/scripts/init_renv.R{% endif %}"
+  - command: ["git", "init", "--initial-branch=main"]
+    when: "{{ git_use }}"
+  - command: ["git", "add", "."]
+    when: "{{ git_use }}"
+  - command: ["git", "commit", "-m", "Initial commit from Copier template"]
+    when: "{{ git_use }}"
+  - command: ["git", "tag", "-a", "v{{ project_version }}", "-m", "Initial release from Copier template"]
+    when: "{{ git_use }}"
+
 _jinja_extensions:
   - jinja2_time.TimeExtension
