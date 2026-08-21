@@ -14,31 +14,13 @@ _message_after_copy: |
     Your project "{{ project_name }}" has been successfully created in the 
     {{ _copier_conf.dst_path }} folder!
 
-    {% if template_profile != 'minimum' and git_use -%}
+    {% if template_profile != 'minimum' -%}
 
-        Next steps:
+        Next steps are described in project_setup.md, located in the root of your project.
+        You can also consult the documentation for our project at:
+        https://ubc-derc.github.io/derc_copier
 
-            - Below are the commands to put your Python package under version control using git:
-
-                cd {{ _copier_conf.dst_path }}
-                git init
-                git add --all
-                git commit -m "first commit"
-                git tag -a v{{ project_version }} -m "Initial release from Copier template"
-                git branch -M main
-                git remote add origin https://{{ git_platform }}/{{ project_org }}/{{ project_repository }}/{{ project_name}}.git
-
-            - Push the initial commit to a new repo on GitHub
-
-                Go to https://github.com/organizations/{{project_repository}}/repositories/new
-                and create a new repository named `{{ project_name }}` as an empty repository, then push your commits to GitHub:
-
-                git push --set-upstream origin main
-
-            - Project layout explained
-
-                For an explanation of what files are there, and what each of these do, please refer to {{ _copier_conf.dst_path }}/project_setup.md
-
+        As well as instructions in your README file.
     {%- endif-%}
 
 _message_before_update: |
