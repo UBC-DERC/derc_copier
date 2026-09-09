@@ -44,6 +44,51 @@ R Project documentation is often generated using `roxygen2`. `roxygen2` is a met
 
 Using this, `roxygen2` is able to pull the tags associated with individual functions and generate documentation for you.
 
-## Publishing your Documentation
+### Publishing your Documentation
 
 GitHub pages provides a useful way for you to publish your documentation. With GitHub actions you can automatically publish your documentation as you build. For example, each push to your `main` branch can be accompanied by a push to `gh-pages`.
+
+## Recognizing Funders
+
+Many funding organizations have defined ways in which they expect to be recognized. For example, NSERC has [clear acknowledgement guidelines](https://nserc-crsng.canada.ca/en/funding/policies-and-guidelines/acknowledgement-and-logos) that they expect funded projects to follow:
+
+> We acknowledge the support of the Natural Sciences and Engineering Research Council of Canada (NSERC), [funding reference number xxxxxx]
+
+Not only does this help recognize the contribution of the agency, it also helps identify your engagement with different funding agencies. More broadly, clearly acknowledging funding agencies helps with our goal of "Findable" research products. It is possible to develop search patterns that can help us link grants to publications to code to people, and so on. These kinds of knowledge webs can help make our other work more discoverable.
+
+### Funder Badges
+
+In Markdown (for example, in our README) we can build "badges". These badges look something like this:
+
+[![core_actions](https://github.com/UBC-DERC/derc_copier/actions/workflows/validation.yml/badge.svg)](https://github.com/UBC-DERC/derc_copier/actions/workflows/validation.yml)
+
+Some badges are static, meaning the information they display is directly encoded in the badge itself. Badges can also be dynamic, for example, a badge to show the number of times software has been downloaded or forked.  We built our *Funder Badges* as static badges:
+
+[![NSERC](https://img.shields.io/badge/NSERC|CRNSG-grant_id-DF202D.svg)]()
+
+Badges take advantage of Markdown to create a simple image tag that can be linked to a URL:
+
+```
+[![NSERC](https://img.shields.io/badge/NSERC|CRNSG-grant_id-DF202D.svg)]()
+```
+
+We have a standard markdown link:
+
+```
+[                                                                      ]()
+```
+
+That contains an SVG image:
+```
+ ![     ](https://img.shields.io/badge/NSERC|CRNSG-grant_id-DF202D.svg)
+```
+
+With alt-text:
+
+```
+ ![NSERC](                                                            )
+```
+
+The SVG is provided by [shields.io](https://shields.io/), a service that exists to make badges easier to use.
+
+Given this, you could also create your own badge, and, if you have a URL that specifically links to your grant online (for example through FundRef), you could add it to the badge as well, so anyone clicking on it would arrive at the grant's landing page.

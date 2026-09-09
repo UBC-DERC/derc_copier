@@ -15,6 +15,9 @@ primary_language = "r"
 [output.".ctt/copier_include"]
 version = "1.2.3"
 
+[output.".ctt/no_gituse"]
+git_use=false
+
 [output.".ctt/mpl_withdoi"]
 archived_data = true
 data_location = "10.2345/data12345"
