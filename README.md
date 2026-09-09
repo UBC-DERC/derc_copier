@@ -28,14 +28,9 @@ To use this template, build from this repository, and point to the directory you
 copier copy https://github.com/UBC-DERC/derc_copier path/to/destination --trust
 ```
 
-<figure>
-  <video controls loop muted playsinline
-    aria-labelledby="video-label"
-    src="https://github.com/UBC-DERC/derc_copier/blob/develop/docs/assets/copy_copier.mp4"></video>
-  <figcaption>
-    Using the copier template from the commandline requires answering some questions about your project.
-  </figcaption>
-</figure>
+<video src="https://raw.githubusercontent.com/UBC-DERC/derc_copier/develop/docs/assets/copy_copier.mp4" width="320" height="240" controls></video>
+
+Using the copier template from the commandline requires answering some questions about your project.
 
 This then gives you a set of prompts to work through, asking information about your name, the project name, and some other choices. These choices will populate a folder with a set of supporting files to help you develop robust code.
 
