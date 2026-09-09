@@ -31,7 +31,7 @@ copier copy https://github.com/UBC-DERC/derc_copier path/to/destination --trust
 <figure>
   <video controls loop muted playsinline
     aria-labelledby="video-label"
-    src="./docs/assets/copy_copier.mp4"></video>
+    src="https://github.com/UBC-DERC/derc_copier/blob/develop/docs/assets/copy_copier.mp4"></video>
   <figcaption>
     Using the copier template from the commandline requires answering some questions about your project.
   </figcaption>
