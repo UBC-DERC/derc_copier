@@ -15,6 +15,12 @@ primary_language = "r"
 [output.".ctt/copier_include"]
 version = "1.2.3"
 
+[output.".ctt/affiliation_ubclong"]
+author_affiliation = "University of British Columbia, Department of Land and Food Systems"
+
+[output.".ctt/affiliation_notubc"]
+author_affiliation = "University of Victoria"
+
 [output.".ctt/no_gituse"]
 git_use=false
 
