@@ -28,6 +28,10 @@ To use this template, build from this repository, and point to the directory you
 copier copy https://github.com/UBC-DERC/derc_copier path/to/destination --trust
 ```
 
+<video src="https://raw.githubusercontent.com/UBC-DERC/derc_copier/develop/docs/assets/copy_copier.mp4" width="320" height="240" controls></video>
+
+Using the copier template from the commandline requires answering some questions about your project.
+
 This then gives you a set of prompts to work through, asking information about your name, the project name, and some other choices. These choices will populate a folder with a set of supporting files to help you develop robust code.
 
 **NOTE**: This implementation initializes a `git` folder (for version control) for you as part of the process. Because of this you will be asked to add `--trust` to your `copier` command.
@@ -59,9 +63,13 @@ If you are initializing a Python project we've chosen `uv` as your package manag
 
 After you've created your folder setup you will see a file called `.copier_answers.yml`. This contains all your answers, including answers to the questions you skipped. At any time you can edit these answers, and then update your repository with the command: `copier update`.
 
-## Testing
+## Contributing to the Project
 
-It's always important to test projects. For this project we use the [`ctt`](https://copier-template-tester.kyleking.me/) (copier-template-tester) package. `ctt` uses the [`ctt.toml`](ctt.toml) file to provide a set of pre-defined answers for various scenarios. Running:
+We welcome contributions to the project, to documentation (in the `docs` folder) or to the templates themselves. This project uses Github Actions to ensure that contributions do not break the project. These actions test that our documentation builds (using `mkdocs`) and that our `ctt` tests work. We strongly suggest that developers contribute by forking this project to their own workspace and create pull requests to incorporate new work.
+
+### Testing
+
+It's always important to test projects. For this project we use the [`ctt`](https://copier-template-tester.kyleking.me/) (copier-template-tester) package. `ctt` uses the [`ctt.toml`](ctt.toml) file to provide a set of pre-defined answers for various scenarios. You can activate the tests by running:
 
 ```bash
 uv run ctt
@@ -69,3 +77,10 @@ uv run ctt
 
 This will generate a set of templates in a new `.ctt` folder. Once the folder has been checked, you will know whether or not the template works.
 
+## Funding Statement
+
+This work was funded through a grant from [Farm Credit Canada](https://www.fcc-fac.ca/).
+
+---
+
+![UBC Logo and name as a wide figure.](assets/ubc-logo-2018-fullsig-blue-rgb72.jpg)
