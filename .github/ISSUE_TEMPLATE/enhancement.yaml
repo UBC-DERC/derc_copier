@@ -17,6 +17,7 @@ body:
         - The DERC Copier template itself
         - Generated projects (code, configs, etc.)
         - Documentation
+    validations:
       required: true
   - type: textarea
     id: what-should-happen
@@ -36,7 +37,8 @@ body:
         - Python
         - R
         - Other
-      required: false
+    validations:
+      required: true
   - type: dropdown
     id: pillar
     attributes:
@@ -47,6 +49,7 @@ body:
         - Attribution (Citation/Licensing/Describing)
         - Building Community
         - Staying Organized
+    validations:
       required: false
   - type: textarea
     id: problem
@@ -54,8 +57,8 @@ body:
       label: What problem would this solve?
       description: Why do you need this feature? What's the current limitation?
       placeholder: "Currently, users cannot... This would help because..."
-      validations:
-        required: true
+    validations:
+      required: true
   - type: checkboxes
     id: terms
     attributes:
@@ -63,12 +66,14 @@ body:
       description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/UBC-DERC/derc_copier/blob/main/CODE_OF_CONDUCT.md).
       options:
         - label: I agree to follow this project's Code of Conduct
-          required: true
+    validations:
+      required: true
   - type: upload
     id: screenshots
     attributes:
       label: Upload screenshots or mockups
       description: If applicable, add screenshots, UI mockups, or example code to help explain your idea.
+    validations:
       required: false
   - type: textarea
     id: additional-info
