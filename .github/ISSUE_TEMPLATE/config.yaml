@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+
+contact_links:
+  - name: Ask Us Questions
+    url: https://github.com/UBC-DERC/derc_copier/discussions
+    about: Have questions about DERC Copier? Ask us in the Discussions instead of opening an issue
+  
+  - name: Read the Project Documentation
+    url: https://UBC-DERC.github.io/derc_copier
+    about: Check our documentation for installation guides, best practices, and FAQs
+  
+  - name: Check out our Contributing Guide
+    url: https://github.com/UBC-DERC/derc_copier/blob/main/CONTRIBUTING.md
+    about: Learn how to contribute to this project

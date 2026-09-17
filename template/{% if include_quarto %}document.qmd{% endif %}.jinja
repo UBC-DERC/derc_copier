@@ -8,10 +8,8 @@ author:
     orcid: {{ author_orcid }}
     email: {{ author_email }}
     affiliation: 
-      - name: University of British Columbia
-        city: Vancouver
-        state: BC
-        url: www.ubc.ca
+      - name: {{ author_affilitation }}
+        {% if not ( author_ror | regex_search("^https://ror.org/000000000$")) %}ror: {{ author_ror }}{% endif %}
 abstract: > 
   {{ project_abstract }}
 keywords:
@@ -25,7 +23,11 @@ citation:
   volume: 0
   issue: 0
   doi: ''
-funding: "The author received no specific funding for this work."
+{% if not author_award %}funding: >-
+  The author received no specific funding for this work.
+{% else %}funding:
+  - award: <List awards here>
+{% endif %}
 ---
 
 ## Introduction

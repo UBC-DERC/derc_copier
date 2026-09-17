@@ -36,7 +36,7 @@ This then gives you a set of prompts to work through, asking information about y
 
 **NOTE**: This implementation initializes a `git` folder (for version control) for you as part of the process. Because of this you will be asked to add `--trust` to your `copier` command.
 
-### What is Required
+### Filling in the Template
 
 To begin you are asked some information to help populate the files. These values may be left blank, or you may revisit and revise the values later. They are simply used to initialize things. If you don't have a good idea of your project description yet, don't worry, you can go back later and edit it in your `README` file.
 
@@ -45,6 +45,19 @@ The full list of questions is visible in the [`copier/questions/questions.yml`](
 **You don't have to answer everything now!**
 
 The nice thing about `copier` is that it lets us update over time. If we improve these templates, you can update. If you have new answers you can update.
+
+### Getting Started in R
+
+If you are initializing an R project the `copier` template will install [`renv`](https://rstudio.github.io/renv/articles/renv.html) a package that help ensure your projects can be easily shared by others by managing all your libraries within the project itself. Once you've installed the `copier` template and answered all the questions, open RStudio and
+
+  1. Select "Open Project" and navigate to the folder you created for your template.
+  2. In the R console, type: `renv::restore()`
+
+This will begin the process of installing the packages you need for your R project. As you keep working, any new packages you install using `install.packages()` can be added to a "snapshot" that can be used by the folks you are working with. Just type `renv::snapshot()` and your packages will be recorded to the `renv.lockfile`, and your colleagues can automatically update their packages using the same `renv::restore()` command you did earlier.
+
+### Getting Started in Python
+
+If you are initializing a Python project we've chosen `uv` as your package manager. Installing new packages with `uv add <PACKAGENAME>` automatically adds them to your `pyproject.toml` file. To ensure you have all the packages you need, start your Python session with the command `uv sync` at the commandline.
 
 ### Updating My Answers
 

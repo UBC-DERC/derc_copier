@@ -1,0 +1,102 @@
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - SimonGoring
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out a bug report for the DERC Copier! 
+  - type: markdown
+    attributes:
+      value: |
+        **Is this a bug in the DERC Copier template itself, or in a project you generated from it?** Either way, we want to help!
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - Windows
+        - macOS
+        - Linux
+      required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version (if applicable)
+      placeholder: "3.12.0"
+  - type: input
+    id: r-version
+    attributes:
+      label: R Version (if applicable)
+      placeholder: "4.3.1"
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      validations:
+        required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead?
+      validations:
+        required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Walk us through exactly how to recreate the bug
+      placeholder: |
+        1. Install copier using...
+        2. Run: copier copy ...
+        3. Answer: [your answers here]
+        4. See error...
+      validations:
+        required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 26.09 (Most recent version)
+        - 26.08.x
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: What programming language are you generating a project for?
+      options:
+        - Python
+        - R
+        - Other
+        - Not applicable (bug with template itself)
+      required: false
+  - type: textarea
+    id: answers
+    attributes:
+      label: Relevant answers.yml file
+      description: Please copy and paste your answers.yml file (if produced). Otherwise, copy the error message you received.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/UBC-DERC/derc_copier/blob/main/CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Upload screenshots
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false

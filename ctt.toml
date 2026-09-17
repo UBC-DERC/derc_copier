@@ -12,8 +12,15 @@ license_type = "MPL-2.0"
 code_of_conduct_lang = "code_fr"
 primary_language = "r"
 
-[output.".ctt/copier_include"]
+[output.".ctt/copier_include_de"]
 version = "1.2.3"
+code_of_conduct_lang = "code_de"
+
+[output.".ctt/affiliation_ubclong"]
+author_affiliation = "University of British Columbia, Department of Land and Food Systems"
+
+[output.".ctt/affiliation_notubc"]
+author_affiliation = "University of Victoria"
 
 [output.".ctt/no_gituse"]
 git_use=false
@@ -35,6 +42,7 @@ license_type = "No License"
 [output.".ctt/r-proj"]
 project_title = "My Project"
 primary_language = "r"
+code_of_conduct_lang = "code_en"
 
 [output.".ctt/other-proj"]
 project_title = "Ruby programming package"
@@ -43,8 +51,7 @@ license_type = "MIT"
 version = "26.08"
 sshrc_award = "410-2004-1234"
 
-
-[output.".ctt/python-proj"]
+[output.".ctt/python-proj_no_git"]
 primary_language = "python"
 project_title = "My Project"
 git_use = false

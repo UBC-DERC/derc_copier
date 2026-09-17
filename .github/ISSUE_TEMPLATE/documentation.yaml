@@ -1,0 +1,66 @@
+name: Documentation Suggestions
+description: Request documentation improvements.
+title: "[Documentation]: "
+labels: ["enhancement", "documentation"]
+assignees:
+  - SimonGoring
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to look at our documentation to make it better!
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Type of Issue
+      options:
+        - Existing docs need clarification
+        - New documentation is missing
+        - Outdated/inaccurate information
+      required: true
+  - type: dropdown
+    id: experience-level
+    attributes:
+      label: Your experience level
+      description: Are you new to copier/research software, or experienced?
+      options:
+        - New to copier
+        - Familiar with copier
+        - Experienced research software developer
+      required: false
+  - type: dropdown
+    id: documentation-section
+    attributes:
+      label: Documentation Section
+      description: Which section of the documentation are you referring to?
+      options:
+        - Installation
+        - Usage
+        - Best Practices - Attribution
+        - Best Practices - Building
+        - Best Practices - Community
+        - Best Practices - Organization
+        - Other
+      required: false
+  - type: textarea
+    id: whats-missing
+    attributes:
+      label: What would you like to see described better?
+      description: Let us know what you'd like to see documented!
+      placeholder: It's so great, but . . . 
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/UBC-DERC/derc_copier/blob/main/CODE_OF_CONDUCT.md).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+      required: true
+  - type: textarea
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Please provide any additional information that may help us understand your request, including external references or links that would help us.
+      placeholder: Any other details you think are relevant.
+      required: false
