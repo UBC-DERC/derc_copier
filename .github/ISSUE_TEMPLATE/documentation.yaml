@@ -4,19 +4,29 @@ title: "[Documentation]: "
 labels: ["enhancement", "documentation"]
 assignees:
   - SimonGoring
-type: documentation
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to look at our documentation to make it better!
-  - type: input
-    id: contact
+  - type: dropdown
+    id: issue-type
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
+      label: Type of Issue
+      options:
+        - Existing docs need clarification
+        - New documentation is missing
+        - Outdated/inaccurate information
+      required: true
+  - type: dropdown
+    id: experience-level
+    attributes:
+      label: Your experience level
+      description: Are you new to copier/research software, or experienced?
+      options:
+        - New to copier
+        - Familiar with copier
+        - Experienced research software developer
       required: false
   - type: dropdown
     id: documentation-section
@@ -29,39 +39,16 @@ body:
         - Best Practices - Attribution
         - Best Practices - Building
         - Best Practices - Community
-        - Using the DERC Copier in a Pipeline
+        - Best Practices - Organization
         - Other
-    validations:
-      required: true
+      required: false
   - type: textarea
     id: whats-missing
     attributes:
       label: What would you like to see described better?
       description: Let us know what you'd like to see documented!
       placeholder: It's so great, but . . . 
-      value: "I want a new thing!"
-    validations:
       required: true
-  - type: dropdown
-    id: version
-    attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 26.09 (Most recent version)
-        - 26.08.x
-      default: 0
-    validations:
-      required: true
-  - type: dropdown
-    id: language
-    attributes:
-      label: What programming language are you using?
-      multiple: true
-      options:
-        - Python
-        - R
-        - Other
   - type: checkboxes
     id: terms
     attributes:
@@ -69,19 +56,11 @@ body:
       description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/UBC-DERC/derc_copier/blob/main/CODE_OF_CONDUCT.md).
       options:
         - label: I agree to follow this project's Code of Conduct
-          required: true
-  - type: upload
-    id: screenshots
-    attributes:
-      label: Upload screenshots
-      description: If applicable, add screenshots to help explain your problem.
-    validations:
-      required: false
+      required: true
   - type: textarea
     id: additional-info
     attributes:
       label: Additional Information
       description: Please provide any additional information that may help us understand your request, including external references or links that would help us.
       placeholder: Any other details you think are relevant.
-    validations:
       required: false

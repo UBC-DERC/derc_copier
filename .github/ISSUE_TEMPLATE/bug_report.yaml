@@ -4,29 +4,60 @@ title: "[Bug]: "
 labels: ["bug", "triage"]
 assignees:
   - SimonGoring
-type: bug
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out a bug report for the DERC Copier!
-  - type: input
-    id: contact
+        Thanks for taking the time to fill out a bug report for the DERC Copier! 
+  - type: markdown
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-  - type: textarea
-    id: what-happened
+      value: |
+        **Is this a bug in the DERC Copier template itself, or in a project you generated from it?** Either way, we want to help!
+  - type: dropdown
+    id: os
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
-    validations:
+      label: Operating System
+      options:
+        - Windows
+        - macOS
+        - Linux
       required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python Version (if applicable)
+      placeholder: "3.12.0"
+  - type: input
+    id: r-version
+    attributes:
+      label: R Version (if applicable)
+      placeholder: "4.3.1"
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      validations:
+        required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead?
+      validations:
+        required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Walk us through exactly how to recreate the bug
+      placeholder: |
+        1. Install copier using...
+        2. Run: copier copy ...
+        3. Answer: [your answers here]
+        4. See error...
+      validations:
+        required: true
   - type: dropdown
     id: version
     attributes:
@@ -41,12 +72,13 @@ body:
   - type: dropdown
     id: language
     attributes:
-      label: What programming language are you using?
-      multiple: true
+      label: What programming language are you generating a project for?
       options:
         - Python
         - R
         - Other
+        - Not applicable (bug with template itself)
+      required: false
   - type: textarea
     id: answers
     attributes:
