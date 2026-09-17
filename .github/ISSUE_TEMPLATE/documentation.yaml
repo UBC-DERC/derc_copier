@@ -17,6 +17,7 @@ body:
         - Existing docs need clarification
         - New documentation is missing
         - Outdated/inaccurate information
+    validations:
       required: true
   - type: dropdown
     id: experience-level
@@ -27,6 +28,7 @@ body:
         - New to copier
         - Familiar with copier
         - Experienced research software developer
+    validations:
       required: false
   - type: dropdown
     id: documentation-section
@@ -41,6 +43,7 @@ body:
         - Best Practices - Community
         - Best Practices - Organization
         - Other
+    validations:
       required: false
   - type: textarea
     id: whats-missing
@@ -48,7 +51,8 @@ body:
       label: What would you like to see described better?
       description: Let us know what you'd like to see documented!
       placeholder: It's so great, but . . . 
-      required: true
+    validations:
+      required: false
   - type: checkboxes
     id: terms
     attributes:
@@ -56,6 +60,7 @@ body:
       description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/UBC-DERC/derc_copier/blob/main/CODE_OF_CONDUCT.md).
       options:
         - label: I agree to follow this project's Code of Conduct
+    validations:
       required: true
   - type: textarea
     id: additional-info
@@ -63,4 +68,5 @@ body:
       label: Additional Information
       description: Please provide any additional information that may help us understand your request, including external references or links that would help us.
       placeholder: Any other details you think are relevant.
+    validations:
       required: false
