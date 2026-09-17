@@ -28,6 +28,13 @@ With the citation you can now reference the software directly, you can add it to
 
 It's also important to note that you can change this citation over time. You can adjust the `version` number, the number and names of authors, links or other elements. The `CFF` template has additional properties that you can also use.
 
+## Making Sure your Citation File Works
+
+There are a number of tools that you can use to improve and test your citation file. GitHub parses your citation file if you upload it as part of your project. You can also use:
+
+* [cffconvert](https://pypi.org/project/cffconvert/) - A Python package that validates local and remote CITATION.cff files
+* [cffinit](https://citation-file-format.github.io/cff-initializer-javascript/#/) - An online tool that can be used to create, update and improve your CITATION.cff files.
+
 ## The CRediT Framework
 
 [CRediT](https://credit.niso.org/) was developed to reflect the different ways in which individuals contribute to academic work ([Brand et al. 2015](https:://doi.org/10.1087/20150211)). It identifies 14 roles individuals can play in getting research published, and helps suport broader concepts of contribution to reflect the very real work that many people play in developing ideas and getting research done.
