@@ -21,7 +21,7 @@ body:
         - Windows
         - macOS
         - Linux
-      required: true
+    required: true
   - type: input
     id: python-version
     attributes:
@@ -37,15 +37,13 @@ body:
     attributes:
       label: Expected Behavior
       description: What did you expect to happen?
-      validations:
-        required: true
+    required: true
   - type: textarea
     id: actual
     attributes:
       label: Actual Behavior
       description: What actually happened instead?
-      validations:
-        required: true
+    required: true
   - type: textarea
     id: reproduce
     attributes:
@@ -56,8 +54,7 @@ body:
         2. Run: copier copy ...
         3. Answer: [your answers here]
         4. See error...
-      validations:
-        required: true
+    required: true
   - type: dropdown
     id: version
     attributes:
@@ -67,8 +64,7 @@ body:
         - 26.09 (Most recent version)
         - 26.08.x
       default: 0
-    validations:
-      required: true
+    required: true
   - type: dropdown
     id: language
     attributes:
@@ -78,7 +74,7 @@ body:
         - R
         - Other
         - Not applicable (bug with template itself)
-      required: false
+    required: false
   - type: textarea
     id: answers
     attributes:
@@ -92,11 +88,10 @@ body:
       description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/UBC-DERC/derc_copier/blob/main/CODE_OF_CONDUCT.md).
       options:
         - label: I agree to follow this project's Code of Conduct
-          required: true
+    required: true
   - type: upload
     id: screenshots
     attributes:
       label: Upload screenshots
       description: If applicable, add screenshots to help explain your problem.
-    validations:
-      required: false
+    required: false
