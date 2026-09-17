@@ -170,6 +170,28 @@ author_email:
     Your author_email must be in the format email@example.com
     {% endif %}
 
+author_affiliation:
+  type: str
+  help: |
+    Provide your affiliation (if known).
+    This will be used to generate badges on your README file, and will link to the citation file for your repository.
+  default: University of British Columbia
+  when: "{{ template_profile in ['recommended', 'ask'] }}"
+
+author_ror:
+  type: str
+  help: |
+    Provide your ROR (Research Organization Registry) ID (if known).
+    This will be used to generate badges on your README file, and will link to the citation file for your repository.
+    The format for a ROR ID is "https://ror.org/XXXXXXX", not just the alphanumeric combination at the end.
+  default: >-
+    {% if (author_affiliation | regex_search("^University of British Columbia.*$")) %}https://ror.org/03rmrcq20{% else %}https://ror.org/000000000{% endif %}
+  when: false
+  validator: >-
+    {% if author_ror and not (author_ror | regex_search('^https://ror.org/[0-9a-z]{7}$', ignorecase=True)) %}
+    Your author_ror must be in the format https://ror.org/XXXXXXX, where X is a digit or letter.
+    {% endif %}
+
 any_award:
   type: bool
   help: |
