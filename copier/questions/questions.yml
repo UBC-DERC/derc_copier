@@ -198,7 +198,7 @@ any_award:
     Do you have any research funding awards that you would like to include in your citation file?
     If you are unsure, we recommend that you select "no". If you are supported by multiple grants from one agency, enter the list with commas separating awards. For example: RGPIN-2023-04350,RGPIN-2024-04350
   default: false
-  when: "{{ template_profile in ['ask'] }}"
+  when: "{{ template_profile in ['ask', 'recommended'] }}"
 
 nserc_award:
   type: str
@@ -207,7 +207,7 @@ nserc_award:
     The code will be used to generate a badge on your README file, and will link to the citation file for your repository.
     If you do not have an NSERC award number, please leave this blank.
   default: ""
-  when: "{{ template_profile in ['ask'] and any_award }}"
+  when: "{{ template_profile in ['ask', 'recommended'] and any_award }}"
   validator: >-
     {% if nserc_award and not (nserc_award | regex_search('^([A-Z]{1,6}-[12][0-9]{3}-[0-9]{5,8}(,*\s*))+$')) %}
     Your nserc_award must be in the format PROGRAMCODE-YYYY-GRANTID.
@@ -220,7 +220,7 @@ cihr_award:
     The code will be used to generate a badge on your README file, and will link to the citation file for your repository.
     If you do not have a CIHR award number, please leave this blank.
   default: ""
-  when: "{{ template_profile in ['ask'] }}"
+  when: "{{ template_profile in ['ask', 'recommended'] }}"
   validator: >-
     {% if cihr_award and not (cihr_award | regex_search('^(([0-9]{3,6})(,*\s*))+$')) %}
     Your cihr_award must be in the format XXXxxx, where X is a digit.
@@ -233,7 +233,7 @@ sshrc_award:
     The code will be used to generate a badge on your README file, and will link to the citation file for your repository.
     If you do not have a SSHRC award number, please leave this blank.
   default: ""
-  when: "{{ template_profile in ['ask'] and any_award }}"
+  when: "{{ template_profile in ['ask', 'recommended'] and any_award }}"
   validator: >-
     {% if sshrc_award and not (sshrc_award | regex_search('^(([0-9]{3,4}-[1,2][0-9]{3}-[0-9]{1,4})(,*\s*))+$')) %}
     Your sshrc_award must be in the format 410-2004-1234, where X is a digit.
@@ -262,7 +262,7 @@ license_type:
       value: No License
     Mozilla Public License 2.0:
       value: MPL-2.0
-  when: "{{ template_profile in ['ask'] }}"
+  when: "{{ template_profile in ['ask', 'recommended'] }}"
   default: No License
 
 code_of_conduct_lang:
@@ -278,7 +278,7 @@ code_of_conduct_lang:
     German (v3.0):
       value: code_de
   default: code_en
-  when: "{{ template_profile in ['ask'] }}"
+  when: "{{ template_profile in ['ask', 'recommended'] }}"
 
 lifecycle:
   type: str
