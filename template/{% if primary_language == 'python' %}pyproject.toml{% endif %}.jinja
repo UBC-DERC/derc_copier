@@ -6,13 +6,15 @@ readme = "README.md"
 authors = [
     { name = "{{ author_given }} {{ author_formal }}", email = "{{ author_email }}" }
 ]
-{%- if not (license_type == 'No license') %}
+{% if not (license_type == 'No license') %}
 license = "{{ license_type }}"
-{%- endif -%}
+{% endif %}
 
 requires-python = ">=3.12"
 
-dependencies = []
+dependencies = [
+    "python-dotenv>=1.2.3"
+]
 
 [build-system]
 requires = ["uv_build>=0.11.20,<0.12.0"]
