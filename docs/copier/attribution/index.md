@@ -6,6 +6,7 @@ Attribution comes with several key elements in a coding project:
 
 * [Citation and citation files](citation.md)
 * [Licensing your code](license.md) (how can other people use it?)
-* Describing what you've done
+* [Describing what you've done in plain text (README.md)](readmes.md)
+* [Describing what you've done for computers (DESCRIPTION and pyproject)](describing.md)
 
 Each of these elements has a number of considerations, and there is, in large part, a good body of academic work around these ideas. Some of the knowledge around these elements also comes from more informal resources, like blogs and mailing lists. I will try to cite and link to some of the more important resources as part of this documentation.

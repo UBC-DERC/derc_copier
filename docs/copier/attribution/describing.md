@@ -6,7 +6,7 @@ Many concepts we use for describing our repository are common across different s
 
 ## Python
 
-Python primarily self-documents using a [`pyproject.toml` file](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/). People will also encounter `requirements.txt` files, but to newer `toml` file is useful because it contains a lot of important information about a software project that makes it more discoverable, and also reproducible if someone else chooses to use your work in part of their own research.
+Python primarily self-documents using a [`pyproject.toml` file](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/). People will also encounter `requirements.txt` files, but the newer `toml` file is useful because it contains important information about a software project that makes it more discoverable, and also reproducible if someone else chooses to use your work as part of their own research.
 
 ### A simple `pyproject.toml` file
 
@@ -40,10 +40,9 @@ From this simple example, we can see the name of the project, the author, it let
 
 Our DERC `copier` tool helps us fill much of this in, giving us a bare-bones `pyproject` file that already includes some of the important information. It also lets you jump right into development with `pytest` and `ruff` installed, so you can start with clean code from the get-go.
 
+### Extending Metadata -- Keywords & Classifiers
 
-### Extending Metadata -- Keywords
-
-`pyproject` files can also identify the license type, related webpages and useful keywords, as well as classifiers from a set of controlled vocabularies. To do this we would add some extra information into our `[project]` section of the TOML file:
+`pyproject` files can also identify the license type, related webpages and useful keywords, as well as classifiers from a set of controlled vocabularies. To do this we would add some extra information into our `[project]` section of the TOML file including keywords and classifiers.
 
 ```toml
 license = "MIT"
@@ -62,6 +61,10 @@ classifiers=[
 ```
 
 Take a look at this section, can you get a sense of what the software might be doing? The hope is that we can use this information to decide whether this is the right piece of software for us, and, to search for software that meets our needs. The more complete your list of keywords is, and the more precise your classifiers, the more discoverable (or **Findable**, if we're thinking FAIR) your software will be.
+
+#### Classifiers
+
+Classifiers are drawn from a fixed set of terms defined by the Python community.
 
 ### Extending Metadata -- Homepages
 
